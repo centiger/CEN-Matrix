@@ -144,12 +144,12 @@ html,body{
   display:flex;
   align-items:center;
   justify-content:space-around;
-  gap:28px;
+  gap:18px;
   text-align:center;
 }
 .bar.repeat span{
   flex:0 0 auto;
-  min-width:120px;
+  min-width:100px;
   text-align:center;
 }
 .bar.repeat.long span{
@@ -160,6 +160,18 @@ html,body{
 /* v27: multi-select filter buttons */
 .tab.active::before{content:"✓ ";font-weight:900;}
 .tab.all-on{background:#70451f;color:#fff;border-color:#70451f;}
+
+
+/* v29: reduce empty text gaps inside medium/long nation bars */
+.bar.repeat.medium{
+  justify-content:space-around;
+  gap:14px;
+}
+.bar.repeat.medium span{
+  flex:0 0 auto;
+  min-width:96px;
+  text-align:center;
+}
 
 </style>
 </head>
@@ -266,7 +278,7 @@ html,body{
 
   <div class="bar nationBar repeat long" data-title="애굽 (이집트)" data-info="오늘날: 이집트&#10;분열왕국 전후 계속 영향력을 행사" style="left:1%;top:10px;width:96%"><span>애굽 (이집트)</span><span>애굽 (이집트)</span><span>애굽 (이집트)</span><span>애굽 (이집트)</span></div>
   <div class="bar nationBar repeat" data-title="아람 (시리아)" data-info="오늘날: 시리아&#10;북이스라엘과 잦은 전쟁" style="left:18%;top:32px;width:45%"><span>아람 (시리아)</span><span>아람 (시리아)</span></div>
-  <div class="bar nationBar" data-title="두로·시돈 (레바논)" data-info="오늘날: 레바논 해안&#10;이세벨, 바알 숭배 유입과 관련" style="left:24%;top:54px;width:28%">두로·시돈 (레바논)</div>
+  <div class="bar nationBar repeat medium" data-title="두로·시돈 (레바논)" data-info="오늘날: 레바논 해안&#10;이세벨, 바알 숭배 유입과 관련" style="left:24%;top:54px;width:28%"><span>두로·시돈 (레바논)</span><span>두로·시돈 (레바논)</span><span>두로·시돈 (레바논)</span></div>
   <div class="bar nationBar repeat" data-title="모압 (요르단)" data-info="오늘날: 요르단&#10;이스라엘·유다와 갈등" style="left:32%;top:76px;width:52%"><span>모압 (요르단)</span><span>모압 (요르단)</span></div>
   <div class="bar nationBar repeat" data-title="암몬 (요르단)" data-info="오늘날: 요르단 암만 지역" style="left:32%;top:98px;width:54%"><span>암몬 (요르단)</span><span>암몬 (요르단)</span></div>
   <div class="bar nationBar repeat" data-title="에돔 (요르단 남부)" data-info="오늘날: 요르단 남부·아라바 지역" style="left:34%;top:120px;width:56%"><span>에돔 (요르단 남부)</span><span>에돔 (요르단 남부)</span></div>
