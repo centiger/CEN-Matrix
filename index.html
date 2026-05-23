@@ -411,69 +411,121 @@ html,body{
 }
 
 
-/* v44: alignment + bottom button height fix */
+/* v45: structural layer/range fix */
 
-/* 1. 타임라인 시작 위치를 오른쪽으로 살짝 이동 */
+/* Keep the left fixed menu as a solid wall */
+.matrix{
+  grid-template-columns:76px 1fr !important;
+  min-width:1740px !important;
+}
+.left{
+  position:sticky !important;
+  left:0 !important;
+  z-index:200 !important;
+  background-clip:border-box !important;
+  box-shadow:none !important;
+  border-right:1px solid #d8c3a2 !important;
+}
+.axisLeft{
+  z-index:230 !important;
+  background:#fff0d8 !important;
+}
+.labelNorth{background:#e7f3ff !important;}
+.labelSouth{background:#ecf7e6 !important;}
+.labelProphets{background:#f2ebff !important;}
+.labelNations{background:#fff0d8 !important;}
+.labelEvents{background:#ffece8 !important;}
+
+/* Right timeline layer begins safely after left menu */
+.axis,
 .plot{
-  padding-left:10px !important;
-  box-sizing:border-box !important;
+  position:relative !important;
+  z-index:1 !important;
+  overflow:visible !important;
 }
 
-/* grid/tick/bar 전체 동일 이동 */
+/* Make the actual drawing area start slightly inside the right layer.
+   This avoids bars/labels visually touching or slipping under the left fixed menu. */
+.axis::before,
+.plot::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:20px;
+  background:#fffdf8;
+  z-index:3;
+  pointer-events:none;
+  border-left:1px solid #e5d3b9;
+}
+
+/* Shift actual timeline content right in a layout-safe way */
+.axis .tick{
+  margin-left:20px !important;
+}
+.plot .grid,
 .plot .bar,
 .plot .dot,
 .plot .eventText,
-.plot .grid{
-  transform:translateX(10px);
+.plot .kingFallMarker{
+  margin-left:20px !important;
 }
 
-/* 연대축도 동일 이동 */
-.axis .tick{
-  transform:translateX(10px);
-}
-.axis .tick:after{
-  left:50%;
+/* grid should stay behind bars */
+.grid{z-index:0 !important;}
+.bar,.dot,.eventText,.kingFallMarker{z-index:4 !important;}
+
+/* Keep late right-side content visible and readable */
+.lateExtra{
+  z-index:5 !important;
 }
 
-/* 2. 왼쪽 고정 메뉴와 타임라인 경계 안정화 */
-.left{
-  border-right:1px solid #d7c5ab !important;
-  box-shadow:8px 0 10px rgba(255,250,242,.98) !important;
-}
-
-/* 3. 하단 버튼 높이 통일 */
+/* Bottom buttons uniform height */
 .actions{
-  align-items:stretch !important;
+  align-items:center !important;
+  height:48px !important;
 }
-
 .action{
-  min-height:52px !important;
-  height:52px !important;
+  height:38px !important;
+  min-height:38px !important;
   display:flex !important;
   align-items:center !important;
   justify-content:center !important;
   line-height:1.05 !important;
-  padding:0 10px !important;
-  box-sizing:border-box !important;
+  padding:0 11px !important;
 }
-
-/* 핵심사건 버튼만 살짝 축소 */
 .action:last-child{
   font-size:11px !important;
   letter-spacing:-0.2px !important;
 }
 
-/* 모바일 균형 */
-@media(max-width:420px){
-  .action{
-    min-height:50px !important;
-    height:50px !important;
-    font-size:12px !important;
-  }
+/* Conservative king display: no extra heavy vertical decorations */
+.northBar::before,.northBar::after,.southBar::before,.southBar::after{
+  content:none !important;
+}
+.northBar.k-short::after,
+.southBar.k-short::after{
+  content:attr(data-short) !important;
+}
+.northBar.k-short::before,
+.southBar.k-short::before{
+  content:"" !important;
+}
 
-  .action:last-child{
-    font-size:10.5px !important;
-  }
+/* fall marker only in north row */
+.kingFallMarker{
+  position:absolute;
+  top:52px;
+  transform:translateX(-50%);
+  color:#b51313;
+  font-size:8px;
+  font-weight:900;
+  white-space:nowrap;
+  background:#fff3f3;
+  border:1px solid #e1a0a0;
+  padding:1px 3px;
+  border-radius:3px;
 }
 
 </style>
@@ -538,6 +590,8 @@ html,body{
   <div class="bar northBar" data-title="여로보암 2세~호세아" data-short="여로보암2~호세아" data-info="연대: BC 793~722&#10;북이스라엘 말기 왕들&#10;호세아는 북이스라엘 마지막 왕" style="left:48.8%;top:30px;width:4.2%;">여로보암 2세 ~ 호세아</div>
 </div>
 
+</div>
+
 <div class="kingFallMarker" style="left:53%" data-title="북이스라엘 멸망" data-info="BC 722년 앗수르에 의해 북이스라엘이 멸망합니다. 이후 북이스라엘 왕은 존재하지 않습니다.">BC 722 멸망</div>
 </div>
 
@@ -577,6 +631,11 @@ html,body{
   <div class="bar prophetBar" data-title="나훔" data-info="앗수르 니느웨 심판 예언" style="left:84%;top:208px;width:8%">나훔</div>
   <div class="bar prophetBar" data-title="스바냐" data-info="요시야 시대 활동&#10;관련성경: 스바냐" style="left:88%;top:230px;width:7%">스바냐</div>
   <div class="bar prophetBar" data-title="예레미야" data-info="대략 BC 627~586경&#10;요시야~시드기야 시대&#10;관련성경: 예레미야, 왕하 24~25장" style="left:89%;top:252px;width:9%">예레미야</div>
+</div>
+
+
+  <div class="bar prophetBar lateExtra" data-title="하박국" data-info="대략 BC 620~610경 활동. 바벨론의 부상과 심판 문제를 다룬 선지자입니다." style="left:87%;top:252px;width:6%">하박국</div>
+  <div class="bar prophetBar lateExtra" data-title="다니엘" data-info="대략 BC 605년 이후 바벨론 포로기와 관련된 선지자입니다. 분열왕국 말기 이후 포로기 연결 인물입니다." style="left:91%;top:230px;width:6%">다니엘</div>
 </div>
 
 <div class="left rowLabel labelNations view nations">주변국</div>
@@ -623,6 +682,11 @@ html,body{
 
   <div class="dot" data-title="예루살렘 함락" data-info="연도: BC 586&#10;주변국: 바벨론 (이라크)&#10;관련성경: 왕하 25장, 렘 39장&#10;핵심 의미: 남유다 멸망과 포로기의 시작" style="left:94%;top:136px"></div>
   <div class="eventText" style="left:94%;top:152px">BC586<br>예루살렘<br>함락</div>
+
+  <div class="dot lateExtra" data-title="바벨론 1차 침공" data-info="연도: BC 605. 바벨론이 유다를 압박하고 포로 사건이 시작되는 분기점입니다." style="left:88%;top:16px"></div>
+  <div class="eventText lateExtra" style="left:88%;top:32px">BC605<br>1차침공</div>
+  <div class="dot lateExtra" data-title="예루살렘 함락" data-info="연도: BC 586. 바벨론에 의해 예루살렘이 함락되고 남유다가 멸망합니다." style="left:94%;top:136px"></div>
+  <div class="eventText lateExtra" style="left:94%;top:152px">BC586<br>예루살렘<br>함락</div>
 </div>
 
 </div>
