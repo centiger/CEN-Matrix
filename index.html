@@ -156,6 +156,11 @@ html,body{
   min-width:150px;
 }
 
+
+/* v27: multi-select filter buttons */
+.tab.active::before{content:"✓ ";font-weight:900;}
+.tab.all-on{background:#70451f;color:#fff;border-color:#70451f;}
+
 </style>
 </head>
 <body>
@@ -323,16 +328,54 @@ html,body{
 const tabs=[...document.querySelectorAll('.tab')];
 const views=[...document.querySelectorAll('.view')];
 
+const allTab = tabs.find(t => t.dataset.view === 'all');
+const filterTabs = tabs.filter(t => t.dataset.view !== 'all');
+let activeFilters = new Set(['kings','prophets','nations','events']);
+
+function applyFilters(){
+  const showAll = activeFilters.size === filterTabs.length;
+
+  tabs.forEach(t => {
+    const v = t.dataset.view;
+    if(v === 'all'){
+      t.classList.toggle('active', showAll);
+      t.classList.toggle('all-on', showAll);
+    }else{
+      t.classList.toggle('active', activeFilters.has(v));
+    }
+  });
+
+  views.forEach(row => {
+    const visible = [...activeFilters].some(key => row.classList.contains(key));
+    row.classList.toggle('hidden', !visible);
+  });
+}
+
 tabs.forEach(tab=>{
   tab.onclick=()=>{
-    tabs.forEach(t=>t.classList.remove('active'));
-    tab.classList.add('active');
-    const view=tab.dataset.view;
-    views.forEach(v=>{
-      v.classList.toggle('hidden', !(view==='all'||v.classList.contains(view)));
-    });
+    const view = tab.dataset.view;
+
+    if(view === 'all'){
+      activeFilters = new Set(['kings','prophets','nations','events']);
+      applyFilters();
+      return;
+    }
+
+    if(activeFilters.has(view)){
+      activeFilters.delete(view);
+    }else{
+      activeFilters.add(view);
+    }
+
+    if(activeFilters.size === 0){
+      activeFilters = new Set(['kings','prophets','nations','events']);
+    }
+
+    applyFilters();
   };
 });
+
+applyFilters();
 
 const modal=document.getElementById('modal');
 const mt=document.getElementById('modalTitle');
