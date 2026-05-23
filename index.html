@@ -181,6 +181,27 @@ html,body{
   .tab{font-size:11px;padding-left:8px;padding-right:8px;}
 }
 
+
+/* v31: king bars are accession markers, not full reign-span bars */
+.northBar,
+.southBar{
+  width:92px !important;
+  min-width:72px;
+  max-width:110px;
+  text-align:center;
+  overflow:hidden;
+}
+.northBar::before,
+.southBar::before{
+  content:"";
+  position:absolute;
+  left:-1px;
+  top:-1px;
+  bottom:-1px;
+  width:4px;
+  background:rgba(0,0,0,.22);
+}
+
 </style>
 </head>
 <body>
@@ -228,39 +249,39 @@ html,body{
 <div class="plot view northking" style="height:300px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="bar northBar" data-title="여로보암 1세" data-info="연대: BC 930~909&#10;관련성경: 왕상 12장&#10;의미: 북이스라엘 금송아지 숭배 체계의 출발점" style="left:4%;top:10px;width:8%">여로보암 1세</div>
-  <div class="bar northBar" data-title="나답" data-info="연대: BC 909~908" style="left:11%;top:32px;width:3%">나답</div>
-  <div class="bar northBar" data-title="바아사" data-info="연대: BC 908~886" style="left:12%;top:54px;width:8%">바아사</div>
-  <div class="bar northBar" data-title="엘라" data-info="연대: BC 886~885" style="left:19%;top:76px;width:3%">엘라</div>
-  <div class="bar northBar" data-title="시므리" data-info="연대: BC 885" style="left:21%;top:98px;width:3%">시므리</div>
-  <div class="bar northBar" data-title="오므리" data-info="연대: BC 885~874&#10;사마리아를 북이스라엘 수도로 삼은 왕조의 기반" style="left:22%;top:120px;width:7%">오므리</div>
-  <div class="bar northBar" data-title="아합" data-info="연대: BC 874~853&#10;관련 인물: 이세벨, 엘리야&#10;관련성경: 왕상 16~22장" style="left:28%;top:142px;width:9%">아합</div>
-  <div class="bar northBar" data-title="아하시야" data-info="연대: BC 853~852" style="left:36%;top:164px;width:5%">아하시야</div>
-  <div class="bar northBar" data-title="여호람" data-info="연대: BC 852~841" style="left:38%;top:186px;width:7%">여호람</div>
-  <div class="bar northBar" data-title="예후" data-info="연대: BC 841~814&#10;아합 왕조 심판과 예후 왕조 시작" style="left:44%;top:208px;width:10%">예후</div>
-  <div class="bar northBar" data-title="여호아하스" data-info="연대: BC 814~798" style="left:53%;top:230px;width:7%">여호아하스</div>
-  <div class="bar northBar" data-title="요아스" data-info="연대: BC 798~782" style="left:59%;top:252px;width:7%">요아스</div>
-  <div class="bar northBar" data-title="여로보암 2세~호세아" data-info="연대: BC 793~722&#10;북이스라엘 말기 왕들&#10;호세아는 북이스라엘 마지막 왕" style="left:64%;top:274px;width:26%">여로보암 2세 ~ 호세아</div>
+  <div class="bar northBar" data-title="여로보암 1세" data-info="연대: BC 930~909&#10;관련성경: 왕상 12장&#10;의미: 북이스라엘 금송아지 숭배 체계의 출발점" style="left:4%;top:10px;">여로보암 1세</div>
+  <div class="bar northBar" data-title="나답" data-info="연대: BC 909~908" style="left:11%;top:32px;">나답</div>
+  <div class="bar northBar" data-title="바아사" data-info="연대: BC 908~886" style="left:12%;top:54px;">바아사</div>
+  <div class="bar northBar" data-title="엘라" data-info="연대: BC 886~885" style="left:19%;top:76px;">엘라</div>
+  <div class="bar northBar" data-title="시므리" data-info="연대: BC 885" style="left:21%;top:98px;">시므리</div>
+  <div class="bar northBar" data-title="오므리" data-info="연대: BC 885~874&#10;사마리아를 북이스라엘 수도로 삼은 왕조의 기반" style="left:22%;top:120px;">오므리</div>
+  <div class="bar northBar" data-title="아합" data-info="연대: BC 874~853&#10;관련 인물: 이세벨, 엘리야&#10;관련성경: 왕상 16~22장" style="left:28%;top:142px;">아합</div>
+  <div class="bar northBar" data-title="아하시야" data-info="연대: BC 853~852" style="left:37%;top:120px;">아하시야</div>
+  <div class="bar northBar" data-title="여호람" data-info="연대: BC 852~841" style="left:33%;top:98px;">여호람</div>
+  <div class="bar northBar" data-title="예후" data-info="연대: BC 841~814&#10;아합 왕조 심판과 예후 왕조 시작" style="left:44%;top:208px;">예후</div>
+  <div class="bar northBar" data-title="여호아하스" data-info="연대: BC 814~798" style="left:53%;top:230px;">여호아하스</div>
+  <div class="bar northBar" data-title="요아스" data-info="연대: BC 798~782" style="left:42%;top:164px;">요아스</div>
+  <div class="bar northBar" data-title="여로보암 2세~호세아" data-info="연대: BC 793~722&#10;북이스라엘 말기 왕들&#10;호세아는 북이스라엘 마지막 왕" style="left:64%;top:274px;">여로보암 2세 ~ 호세아</div>
 </div>
 
 <div class="left rowLabel labelSouth view southking">남유다<br>왕</div>
 <div class="plot view southking" style="height:344px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="bar southBar" data-title="르호보암" data-info="연대: BC 930~913&#10;관련성경: 왕상 12장, 대하 10장" style="left:4%;top:10px;width:7%">르호보암</div>
-  <div class="bar southBar" data-title="아비야" data-info="연대: BC 913~911" style="left:10%;top:32px;width:4%">아비야</div>
-  <div class="bar southBar" data-title="아사" data-info="연대: BC 911~870" style="left:12%;top:54px;width:14%">아사</div>
-  <div class="bar southBar" data-title="여호사밧" data-info="연대: BC 870~848&#10;관련성경: 대하 17~20장" style="left:25%;top:76px;width:9%">여호사밧</div>
-  <div class="bar southBar" data-title="여호람" data-info="연대: BC 848~841" style="left:33%;top:98px;width:5%">여호람</div>
-  <div class="bar southBar" data-title="아하시야" data-info="연대: BC 841" style="left:37%;top:120px;width:4%">아하시야</div>
-  <div class="bar southBar" data-title="아달랴" data-info="연대: BC 841~835" style="left:38%;top:142px;width:5%">아달랴</div>
-  <div class="bar southBar" data-title="요아스" data-info="연대: BC 835~796" style="left:42%;top:164px;width:13%">요아스</div>
-  <div class="bar southBar" data-title="아마샤" data-info="연대: BC 796~767" style="left:54%;top:186px;width:11%">아마샤</div>
-  <div class="bar southBar" data-title="웃시야" data-info="연대: BC 792~740&#10;이사야 소명 시기와 연결" style="left:60%;top:208px;width:18%">웃시야</div>
-  <div class="bar southBar" data-title="요담" data-info="연대: BC 750~732" style="left:69%;top:230px;width:8%">요담</div>
-  <div class="bar southBar" data-title="아하스" data-info="연대: BC 735~716" style="left:73%;top:252px;width:8%">아하스</div>
-  <div class="bar southBar" data-title="히스기야" data-info="연대: BC 716~687&#10;관련성경: 왕하 18~20장, 사 36~39장" style="left:79%;top:274px;width:11%">히스기야</div>
-  <div class="bar southBar" data-title="므낫세~시드기야" data-info="연대: BC 687~586&#10;남유다 말기 왕들&#10;시드기야 때 예루살렘 함락" style="left:87%;top:296px;width:10%">므낫세~시드기야</div>
+  <div class="bar southBar" data-title="르호보암" data-info="연대: BC 930~913&#10;관련성경: 왕상 12장, 대하 10장" style="left:4%;top:10px;">르호보암</div>
+  <div class="bar southBar" data-title="아비야" data-info="연대: BC 913~911" style="left:10%;top:32px;">아비야</div>
+  <div class="bar southBar" data-title="아사" data-info="연대: BC 911~870" style="left:12%;top:54px;">아사</div>
+  <div class="bar southBar" data-title="여호사밧" data-info="연대: BC 870~848&#10;관련성경: 대하 17~20장" style="left:25%;top:76px;">여호사밧</div>
+  <div class="bar southBar" data-title="여호람" data-info="연대: BC 848~841" style="left:33%;top:98px;">여호람</div>
+  <div class="bar southBar" data-title="아하시야" data-info="연대: BC 841" style="left:37%;top:120px;">아하시야</div>
+  <div class="bar southBar" data-title="아달랴" data-info="연대: BC 841~835" style="left:38%;top:142px;">아달랴</div>
+  <div class="bar southBar" data-title="요아스" data-info="연대: BC 835~796" style="left:42%;top:164px;">요아스</div>
+  <div class="bar southBar" data-title="아마샤" data-info="연대: BC 796~767" style="left:54%;top:186px;">아마샤</div>
+  <div class="bar southBar" data-title="웃시야" data-info="연대: BC 792~740&#10;이사야 소명 시기와 연결" style="left:60%;top:208px;">웃시야</div>
+  <div class="bar southBar" data-title="요담" data-info="연대: BC 750~732" style="left:69%;top:230px;">요담</div>
+  <div class="bar southBar" data-title="아하스" data-info="연대: BC 735~716" style="left:73%;top:252px;">아하스</div>
+  <div class="bar southBar" data-title="히스기야" data-info="연대: BC 716~687&#10;관련성경: 왕하 18~20장, 사 36~39장" style="left:79%;top:274px;">히스기야</div>
+  <div class="bar southBar" data-title="므낫세~시드기야" data-info="연대: BC 687~586&#10;남유다 말기 왕들&#10;시드기야 때 예루살렘 함락" style="left:87%;top:296px;">므낫세~시드기야</div>
 </div>
 
 <div class="left rowLabel labelProphets view prophets">선지자</div>
