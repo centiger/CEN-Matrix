@@ -410,6 +410,72 @@ html,body{
   .tab{font-size:10.5px!important;padding-left:7px!important;padding-right:7px!important;}
 }
 
+
+/* v44: alignment + bottom button height fix */
+
+/* 1. 타임라인 시작 위치를 오른쪽으로 살짝 이동 */
+.plot{
+  padding-left:10px !important;
+  box-sizing:border-box !important;
+}
+
+/* grid/tick/bar 전체 동일 이동 */
+.plot .bar,
+.plot .dot,
+.plot .eventText,
+.plot .grid{
+  transform:translateX(10px);
+}
+
+/* 연대축도 동일 이동 */
+.axis .tick{
+  transform:translateX(10px);
+}
+.axis .tick:after{
+  left:50%;
+}
+
+/* 2. 왼쪽 고정 메뉴와 타임라인 경계 안정화 */
+.left{
+  border-right:1px solid #d7c5ab !important;
+  box-shadow:8px 0 10px rgba(255,250,242,.98) !important;
+}
+
+/* 3. 하단 버튼 높이 통일 */
+.actions{
+  align-items:stretch !important;
+}
+
+.action{
+  min-height:52px !important;
+  height:52px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  line-height:1.05 !important;
+  padding:0 10px !important;
+  box-sizing:border-box !important;
+}
+
+/* 핵심사건 버튼만 살짝 축소 */
+.action:last-child{
+  font-size:11px !important;
+  letter-spacing:-0.2px !important;
+}
+
+/* 모바일 균형 */
+@media(max-width:420px){
+  .action{
+    min-height:50px !important;
+    height:50px !important;
+    font-size:12px !important;
+  }
+
+  .action:last-child{
+    font-size:10.5px !important;
+  }
+}
+
 </style>
 </head>
 <body>
