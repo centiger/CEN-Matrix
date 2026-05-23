@@ -27,7 +27,7 @@ body{min-height:100vh;}
 .app-header{
   position:sticky;top:0;z-index:30;
   background:linear-gradient(135deg,#142033,#24364f);
-  color:white;padding:12px 14px 10px;
+  color:white;padding:8px 10px 7px;
   box-shadow:0 3px 12px rgba(0,0,0,.18);
 }
 .header-top{display:flex;align-items:center;gap:10px;}
@@ -37,23 +37,23 @@ body{min-height:100vh;}
   color:white;border-radius:10px;padding:8px 10px;font-size:18px;
 }
 .title-wrap{flex:1;}
-.app-title{font-size:20px;font-weight:800;letter-spacing:.2px;}
-.app-sub{font-size:12px;color:#e6dac8;margin-top:2px;}
+.app-title{font-size:15px;font-weight:800;letter-spacing:.2px;}
+.app-sub{font-size:10px;color:#e6dac8;margin-top:2px;}
 .period-badge{
-  font-size:12px;border:1px solid rgba(255,255,255,.35);
+  font-size:10px;border:1px solid rgba(255,255,255,.35);
   border-radius:999px;padding:6px 9px;white-space:nowrap;color:#fff3d7;
 }
 .period-line{
-  margin-top:10px;
+  margin-top:6px;
   display:flex;align-items:center;justify-content:space-between;gap:10px;
-  font-size:13px;color:#f3e8d6;
+  font-size:11px;color:#f3e8d6;
 }
 .period-name{font-weight:700}
 .tabs{
   position:sticky;top:64px;z-index:25;
   display:flex;gap:8px;overflow-x:auto;
   background:rgba(246,239,228,.96);
-  padding:10px 10px 8px;
+  padding:6px 6px 5px;
   border-bottom:1px solid #e2d3bd;
   backdrop-filter:blur(6px);
 }
@@ -62,10 +62,10 @@ body{min-height:100vh;}
   border:1px solid #c9b799;
   background:#fffaf2;
   color:#4d351d;
-  padding:9px 14px;
+  padding:6px 10px;
   border-radius:999px;
   font-weight:700;
-  font-size:14px;
+  font-size:10px;
 }
 .tab.active{
   background:#6f4b2a;color:white;border-color:#6f4b2a;
@@ -78,7 +78,7 @@ body{min-height:100vh;}
 }
 .drawer.open{transform:translateX(0);}
 .drawer-title{font-size:24px;font-weight:800;margin-bottom:4px}
-.drawer-sub{font-size:13px;color:#dbc9ad;margin-bottom:20px}
+.drawer-sub{font-size:11px;color:#dbc9ad;margin-bottom:20px}
 .drawer-item{
   padding:13px;border-radius:12px;margin-bottom:8px;background:#21334d;color:white;
 }
@@ -92,12 +92,12 @@ body{min-height:100vh;}
   background:var(--paper);
   border:1px solid #decbb0;
   border-radius:16px;
-  padding:13px 14px;
-  margin-bottom:12px;
+  padding:9px 10px;
+  margin-bottom:8px;
   box-shadow:0 4px 12px rgba(90,60,25,.06);
 }
-.info-title{font-weight:800;font-size:17px;margin-bottom:4px;color:#412812}
-.info-desc{font-size:13px;line-height:1.55;color:#5a4938}
+.info-title{font-weight:800;font-size:15px;margin-bottom:4px;color:#412812}
+.info-desc{font-size:11px;line-height:1.4;color:#5a4938}
 .matrix-shell{
   background:white;border:1px solid #d8c7ad;border-radius:16px;
   overflow:hidden;box-shadow:0 5px 15px rgba(80,55,25,.08);
@@ -123,7 +123,7 @@ body{min-height:100vh;}
 .tick.red{color:#b81010;}
 .axis-caption{
   position:absolute;top:48px;transform:translateX(-50%);
-  font-size:12px;color:#6a5140;white-space:nowrap;
+  font-size:10px;color:#6a5140;white-space:nowrap;
 }
 .lane-title{
   font-size:15px;font-weight:900;margin:16px 0 8px;color:#3d2b1a;
@@ -132,27 +132,27 @@ body{min-height:100vh;}
 .lane-title span{font-size:18px}
 .lane{
   position:relative;
-  min-height:72px;
+  min-height:54px;
   border-top:1px dashed #e0d3bf;
-  padding-top:8px;
+  padding-top:4px;
 }
-.lane.compact{min-height:50px;}
-.lane.tall{min-height:210px;}
+.lane.compact{min-height:40px;}
+.lane.tall{min-height:150px;}
 .item{
   position:absolute;
-  height:34px;
+  height:24px;
   border-radius:0;
-  padding:4px 8px;
+  padding:2px 5px;
   border:1px solid rgba(0,0,0,.16);
   display:flex;align-items:center;justify-content:center;
-  text-align:center;font-size:13px;font-weight:700;
+  text-align:center;font-size:11px;font-weight:700;
   overflow:hidden;white-space:nowrap;
 }
 .item small{font-weight:600;font-size:11px;display:block}
 .king-n{background:linear-gradient(#a9cbff,#7fb3ff);}
 .king-s{background:linear-gradient(#c3e5aa,#9ad17d);}
 .prophet{
-  background:#d8c8ff;height:20px;font-size:12px;
+  background:#d8c8ff;height:14px;font-size:10px;
   color:#2f2066;border-color:#9b82e0;
 }
 .nation{background:#ffd898;border-color:#e6a94a;color:#4b2a00;}
@@ -162,23 +162,23 @@ body{min-height:100vh;}
 }
 .event-label{
   position:absolute;top:30px;transform:translateX(-50%);
-  font-size:12px;font-weight:800;text-align:center;color:#711313;width:110px;line-height:1.35;
+  font-size:10px;font-weight:800;text-align:center;color:#711313;width:110px;line-height:1.35;
 }
 .gridline{position:absolute;top:70px;bottom:0;width:1px;border-left:1px dashed #e1d8cb;z-index:0;}
 .legend{
   display:flex;gap:10px;flex-wrap:wrap;align-items:center;
-  font-size:12px;color:#5a4938;margin:12px 4px 0;
+  font-size:10px;color:#5a4938;margin:12px 4px 0;
 }
 .lg{display:inline-flex;align-items:center;gap:4px}
 .sw{width:13px;height:13px;display:inline-block;border:1px solid rgba(0,0,0,.12)}
 .actions{
   position:fixed;left:0;right:0;bottom:0;z-index:35;
-  display:flex;gap:7px;overflow-x:auto;padding:9px 10px calc(9px + env(safe-area-inset-bottom));
+  display:flex;gap:7px;overflow-x:auto;padding:5px 6px calc(5px + env(safe-area-inset-bottom));
   background:rgba(246,239,228,.96);border-top:1px solid #d7c5a9;backdrop-filter:blur(8px);
 }
 .action-btn{
   flex:0 0 auto;background:white;border:1px solid #c9b799;border-radius:12px;
-  padding:10px 13px;color:#4a3320;font-size:13px;font-weight:700;
+  padding:7px 9px;color:#4a3320;font-size:11px;font-weight:700;
 }
 .hidden{display:none;}
 .modal{
@@ -190,8 +190,8 @@ body{min-height:100vh;}
   width:min(460px,100%);background:#fffaf2;border-radius:18px;border:1px solid #d5bd98;padding:18px;
   box-shadow:0 18px 40px rgba(0,0,0,.25);
 }
-.modal-title{font-size:20px;font-weight:900;margin-bottom:8px;color:#3b2412}
-.modal-body{font-size:14px;line-height:1.65;color:#4e3b2b;white-space:pre-line}
+.modal-title{font-size:15px;font-weight:900;margin-bottom:8px;color:#3b2412}
+.modal-body{font-size:10px;line-height:1.65;color:#4e3b2b;white-space:pre-line}
 .close-btn{
   width:100%;margin-top:14px;background:#6f4b2a;color:white;border:0;border-radius:12px;padding:12px;font-weight:800;
 }
@@ -292,19 +292,19 @@ body{min-height:100vh;}
         <div class="view view-prophets hidden">
           <div class="lane-title"><span>🟣</span> 선지자 활동 구간</div>
           <div class="lane tall">
-            <div class="item prophet" data-title="엘리야" data-info="대략 BC 875~850경\n관련 왕: 아합\n관련 사건: 갈멜산 대결\n관련성경: 왕상 17~19장\n신학 의미: 참 하나님과 우상의 대결" style="left:20%;top:18px;width:24%;">엘리야</div>
-            <div class="item prophet" data-title="엘리사" data-info="대략 BC 854~796경\n관련성경: 왕하 2~13장\n신학 의미: 하나님의 능력과 언약 백성 돌보심" style="left:30%;top:50px;width:34%;">엘리사</div>
-            <div class="item prophet" data-title="아모스" data-info="대략 BC 760경\n관련성경: 아모스\n신학 의미: 사회정의와 형식적 종교에 대한 심판 경고" style="left:56%;top:82px;width:12%;">아모스</div>
-            <div class="item prophet" data-title="호세아" data-info="대략 BC 755~722경\n관련성경: 호세아\n신학 의미: 언약적 사랑과 배반한 이스라엘에 대한 회개 촉구" style="left:60%;top:114px;width:20%;">호세아</div>
-            <div class="item prophet" data-title="이사야" data-info="대략 BC 740~680경\n관련 왕: 웃시야, 요담, 아하스, 히스기야\n관련성경: 이사야, 왕하 18~20장\n신학 의미: 거룩하신 하나님, 남은 자, 메시아 소망" style="left:64%;top:146px;width:29%;">이사야</div>
-            <div class="item prophet" data-title="예레미야" data-info="대략 BC 627~586경\n관련 왕: 요시야~시드기야\n관련성경: 예레미야, 왕하 24~25장\n신학 의미: 새 언약, 심판과 회복" style="left:82%;top:178px;width:15%;">예레미야</div>
+            <div class="item prophet" data-title="엘리야" data-info="대략 BC 875~850경\n관련 왕: 아합\n관련 사건: 갈멜산 대결\n관련성경: 왕상 17~19장\n신학 의미: 참 하나님과 우상의 대결" style="left:20%;top:8px;width:24%;">엘리야</div>
+            <div class="item prophet" data-title="엘리사" data-info="대략 BC 854~796경\n관련성경: 왕하 2~13장\n신학 의미: 하나님의 능력과 언약 백성 돌보심" style="left:30%;top:28px;width:34%;">엘리사</div>
+            <div class="item prophet" data-title="아모스" data-info="대략 BC 760경\n관련성경: 아모스\n신학 의미: 사회정의와 형식적 종교에 대한 심판 경고" style="left:56%;top:48px;width:12%;">아모스</div>
+            <div class="item prophet" data-title="호세아" data-info="대략 BC 755~722경\n관련성경: 호세아\n신학 의미: 언약적 사랑과 배반한 이스라엘에 대한 회개 촉구" style="left:60%;top:68px;width:20%;">호세아</div>
+            <div class="item prophet" data-title="이사야" data-info="대략 BC 740~680경\n관련 왕: 웃시야, 요담, 아하스, 히스기야\n관련성경: 이사야, 왕하 18~20장\n신학 의미: 거룩하신 하나님, 남은 자, 메시아 소망" style="left:64%;top:88px;width:29%;">이사야</div>
+            <div class="item prophet" data-title="예레미야" data-info="대략 BC 627~586경\n관련 왕: 요시야~시드기야\n관련성경: 예레미야, 왕하 24~25장\n신학 의미: 새 언약, 심판과 회복" style="left:82%;top:108px;width:15%;">예레미야</div>
           </div>
         </div>
 
         <div class="view view-nations hidden">
           <div class="lane-title"><span>🌍</span> 주변국</div>
           <div class="lane tall">
-            <div class="item nation" data-title="아람 (시리아)" data-info="성경 지명: 아람\n오늘날: 시리아 중심\n관련성경: 왕상 20장, 왕하 5장\n관련 인물: 나아만, 벤하닷" style="left:5%;top:18px;width:34%;">아람 (시리아)</div>
+            <div class="item nation" data-title="아람 (시리아)" data-info="성경 지명: 아람\n오늘날: 시리아 중심\n관련성경: 왕상 20장, 왕하 5장\n관련 인물: 나아만, 벤하닷" style="left:5%;top:8px;width:34%;">아람 (시리아)</div>
             <div class="item nation" data-title="앗수르 (이라크 북부)" data-info="성경 지명: 앗수르\n오늘날: 이라크 북부\n주요 도시: 니느웨\n관련성경: 왕하 17~19장, 이사야 36~37장\n핵심 사건: 북이스라엘 멸망, 히스기야 시대 앗수르 위기" style="left:45%;top:58px;width:38%;">앗수르 (이라크 북부)</div>
             <div class="item nation" data-title="바벨론 (이라크)" data-info="성경 지명: 바벨론\n오늘날: 이라크\n관련성경: 왕하 24~25장, 예레미야 39장\n핵심 사건: 예루살렘 함락, 바벨론 포로" style="left:76%;top:98px;width:21%;">바벨론 (이라크)</div>
             <div class="item nation" data-title="두로·시돈 (레바논)" data-info="성경 지명: 두로·시돈\n오늘날: 레바논 해안\n관련 인물: 이세벨\n의미: 바알 숭배 유입과 연결" style="left:20%;top:138px;width:20%;">두로·시돈 (레바논)</div>
