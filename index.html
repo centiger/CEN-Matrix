@@ -292,16 +292,44 @@ html,body{
 }
 
 
-/* v42: multi-select + split kings + single-line king rows */
+/* v43: fixed left mask + multi-select + split king rows */
+.matrix{
+  grid-template-columns:76px 1fr !important;
+}
+.left{
+  position:sticky !important;
+  left:0 !important;
+  z-index:90 !important;
+  background-clip:padding-box !important;
+  box-shadow:6px 0 8px rgba(255,253,248,.96) !important;
+  isolation:isolate !important;
+}
+.axisLeft{
+  z-index:120 !important;
+  background:#fff0d8 !important;
+}
+.labelNorth{background:#e7f3ff !important;}
+.labelSouth{background:#ecf7e6 !important;}
+.labelProphets{background:#f2ebff !important;}
+.labelNations{background:#fff0d8 !important;}
+.labelEvents{background:#ffece8 !important;}
+
+.plot{
+  z-index:1 !important;
+  overflow:visible !important;
+}
+.plot .bar,.plot .dot,.plot .eventText,.plot .grid{
+  z-index:1;
+}
 .tabs{gap:5px;}
 .tab{padding-left:9px!important;padding-right:9px!important;}
 .tab.active::before{content:"✓ ";font-weight:900;}
 .tab.all-on{background:#70451f!important;color:#fff!important;border-color:#70451f!important;}
 
 .plot.view.northking,
-.plot.view.southking{height:74px!important;}
+.plot.view.southking{height:76px!important;}
 .rowLabel.view.northking,
-.rowLabel.view.southking{min-height:74px!important;}
+.rowLabel.view.southking{min-height:76px!important;}
 
 .northBar,
 .southBar{
@@ -313,8 +341,6 @@ html,body{
   text-align:center!important;
   overflow:hidden!important;
   color:#111!important;
-  border-left-width:1px!important;
-  border-right-width:1px!important;
 }
 .northBar::before,.northBar::after,.southBar::before,.southBar::after{content:none!important;}
 
@@ -334,11 +360,12 @@ html,body{
   font-weight:900;
   line-height:1;
   white-space:nowrap;
-  background:rgba(255,253,248,.94);
+  background:rgba(255,253,248,.96);
   border:1px solid rgba(0,0,0,.08);
   border-radius:3px;
   padding:1px 2px;
   pointer-events:none;
+  z-index:5;
 }
 .northBar.k-up::after,.southBar.k-up::after{top:-16px;}
 .northBar.k-down::after,.southBar.k-down::after{top:22px;}
@@ -353,6 +380,7 @@ html,body{
   border-left:3px solid transparent;
   border-right:3px solid transparent;
   pointer-events:none;
+  z-index:5;
 }
 .northBar.k-up::before,.southBar.k-up::before{
   top:-4px;
@@ -426,7 +454,7 @@ html,body{
 </div>
 
 <div class="left rowLabel labelNorth view northking">북이스라엘<br>왕</div>
-<div class="plot view northking" style="height:74px">
+<div class="plot view northking" style="height:76px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
   <div class="bar northBar" data-title="여로보암 1세" data-short="여로보암1" data-info="연대: BC 930~909&#10;관련성경: 왕상 12장&#10;의미: 북이스라엘 금송아지 숭배 체계의 출발점" style="left:4%;top:30px;width:6.0%;">여로보암 1세</div>
@@ -448,7 +476,7 @@ html,body{
 </div>
 
 <div class="left rowLabel labelSouth view southking">남유다<br>왕</div>
-<div class="plot view southking" style="height:74px">
+<div class="plot view southking" style="height:76px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
   <div class="bar southBar k-short k-up" data-title="르호보암" data-short="르호보암" data-info="연대: BC 930~913&#10;관련성경: 왕상 12장, 대하 10장" style="left:4%;top:30px;width:4.8%;">르호보암</div>
