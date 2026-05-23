@@ -1,4 +1,4 @@
-const CACHE_NAME='cen-matrix-kings-restored-v1';
+const CACHE_NAME='cen-matrix-real-proportional-kings-v1';
 const ASSETS=['./','./index.html','./manifest.json','./icons/icon-192.png','./icons/icon-512.png'];
 
 self.addEventListener('install', event => {
