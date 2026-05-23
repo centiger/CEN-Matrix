@@ -138,6 +138,24 @@ html,body{
   .rowLabel{font-size:11px;}
   .axisLeft{font-size:12.5px;}
 }
+
+/* v26: repeated labels for long horizontal bars */
+.bar.repeat{
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  gap:28px;
+  text-align:center;
+}
+.bar.repeat span{
+  flex:0 0 auto;
+  min-width:120px;
+  text-align:center;
+}
+.bar.repeat.long span{
+  min-width:150px;
+}
+
 </style>
 </head>
 <body>
@@ -241,13 +259,13 @@ html,body{
 <div class="plot view nations" style="height:190px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="bar nationBar" data-title="애굽 (이집트)" data-info="오늘날: 이집트&#10;분열왕국 전후 계속 영향력을 행사" style="left:1%;top:10px;width:96%">애굽 (이집트)</div>
-  <div class="bar nationBar" data-title="아람 (시리아)" data-info="오늘날: 시리아&#10;북이스라엘과 잦은 전쟁" style="left:18%;top:32px;width:45%">아람 (시리아)</div>
+  <div class="bar nationBar repeat long" data-title="애굽 (이집트)" data-info="오늘날: 이집트&#10;분열왕국 전후 계속 영향력을 행사" style="left:1%;top:10px;width:96%"><span>애굽 (이집트)</span><span>애굽 (이집트)</span><span>애굽 (이집트)</span><span>애굽 (이집트)</span></div>
+  <div class="bar nationBar repeat" data-title="아람 (시리아)" data-info="오늘날: 시리아&#10;북이스라엘과 잦은 전쟁" style="left:18%;top:32px;width:45%"><span>아람 (시리아)</span><span>아람 (시리아)</span></div>
   <div class="bar nationBar" data-title="두로·시돈 (레바논)" data-info="오늘날: 레바논 해안&#10;이세벨, 바알 숭배 유입과 관련" style="left:24%;top:54px;width:28%">두로·시돈 (레바논)</div>
-  <div class="bar nationBar" data-title="모압 (요르단)" data-info="오늘날: 요르단&#10;이스라엘·유다와 갈등" style="left:32%;top:76px;width:52%">모압 (요르단)</div>
-  <div class="bar nationBar" data-title="암몬 (요르단)" data-info="오늘날: 요르단 암만 지역" style="left:32%;top:98px;width:54%">암몬 (요르단)</div>
-  <div class="bar nationBar" data-title="에돔 (요르단 남부)" data-info="오늘날: 요르단 남부·아라바 지역" style="left:34%;top:120px;width:56%">에돔 (요르단 남부)</div>
-  <div class="bar nationBar" data-title="앗수르 (이라크 북부)" data-info="오늘날: 이라크 북부&#10;북이스라엘 멸망, 히스기야 시대 위기와 관련" style="left:58%;top:142px;width:30%">앗수르 (이라크 북부)</div>
+  <div class="bar nationBar repeat" data-title="모압 (요르단)" data-info="오늘날: 요르단&#10;이스라엘·유다와 갈등" style="left:32%;top:76px;width:52%"><span>모압 (요르단)</span><span>모압 (요르단)</span></div>
+  <div class="bar nationBar repeat" data-title="암몬 (요르단)" data-info="오늘날: 요르단 암만 지역" style="left:32%;top:98px;width:54%"><span>암몬 (요르단)</span><span>암몬 (요르단)</span></div>
+  <div class="bar nationBar repeat" data-title="에돔 (요르단 남부)" data-info="오늘날: 요르단 남부·아라바 지역" style="left:34%;top:120px;width:56%"><span>에돔 (요르단 남부)</span><span>에돔 (요르단 남부)</span></div>
+  <div class="bar nationBar repeat" data-title="앗수르 (이라크 북부)" data-info="오늘날: 이라크 북부&#10;북이스라엘 멸망, 히스기야 시대 위기와 관련" style="left:58%;top:142px;width:30%"><span>앗수르 (이라크 북부)</span><span>앗수르 (이라크 북부)</span></div>
   <div class="bar nationBar" data-title="바벨론 (이라크)" data-info="오늘날: 이라크&#10;남유다 멸망과 포로기의 직접 배경" style="left:86%;top:164px;width:12%">바벨론 (이라크)</div>
 </div>
 
