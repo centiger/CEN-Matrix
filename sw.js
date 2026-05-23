@@ -1,4 +1,4 @@
-const CACHE_NAME='cen-matrix-v46-bc931-anchor';
+const CACHE_NAME='cen-matrix-v41-refined-stable';
 self.addEventListener('install',e=>{self.skipWaiting();});
 self.addEventListener('activate',e=>{self.clients.claim();});
 self.addEventListener('fetch',e=>{});
