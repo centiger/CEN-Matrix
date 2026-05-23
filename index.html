@@ -171,6 +171,135 @@ html,body{
   .main{height:calc(100% - 72px - 37px - 42px)}
   .actions{height:42px}
 }
+
+/* v16 refined: readable compact matrix */
+.matrix{
+  grid-template-columns:86px 1fr;
+  grid-template-rows:34px 130px 112px 132px 116px 104px;
+}
+.axisLeft{
+  font-size:14px;
+}
+.label{
+  font-size:16px;
+  line-height:1.18;
+}
+.axis{
+  background:#fffdf8;
+}
+.xline{
+  display:none;
+}
+.tick{
+  top:8px;
+  font-size:15px;
+  letter-spacing:-0.5px;
+}
+.tick:after{
+  top:22px;
+  height:8px;
+  background:#b8a58d;
+}
+.grid{
+  top:0;
+}
+.bar{
+  height:23px;
+  line-height:23px;
+  font-size:14px;
+  padding:0 5px;
+  text-shadow:none;
+}
+.eventDot{
+  top:17px;
+  width:12px;
+  height:12px;
+}
+.eventText{
+  top:35px;
+  font-size:12px;
+  line-height:1.15;
+  width:76px;
+}
+
+/* reduce row-internal vertical spacing */
+.northBar:nth-of-type(1){top:12px!important;}
+.northBar:nth-of-type(2){top:36px!important;}
+.northBar:nth-of-type(3){top:60px!important;}
+.northBar:nth-of-type(4){top:84px!important;}
+.northBar:nth-of-type(5){top:108px!important;}
+
+.southBar:nth-of-type(1){top:10px!important;}
+.southBar:nth-of-type(2){top:34px!important;}
+.southBar:nth-of-type(3){top:58px!important;}
+.southBar:nth-of-type(4){top:82px!important;}
+.southBar:nth-of-type(5){top:96px!important;}
+
+.prophetBar:nth-of-type(1){top:11px!important;}
+.prophetBar:nth-of-type(2){top:35px!important;}
+.prophetBar:nth-of-type(3){top:59px!important;}
+.prophetBar:nth-of-type(4){top:83px!important;}
+.prophetBar:nth-of-type(5){top:107px!important;}
+.prophetBar:nth-of-type(6){top:121px!important;}
+
+.nationBar:nth-of-type(1){top:8px!important;}
+.nationBar:nth-of-type(2){top:31px!important;}
+.nationBar:nth-of-type(3){top:54px!important;}
+.nationBar:nth-of-type(4){top:77px!important;}
+.nationBar:nth-of-type(5){top:100px!important;}
+
+.top{
+  height:72px;
+}
+.top1{
+  height:38px;
+}
+.logo b{
+  font-size:18px;
+}
+.logo span{
+  font-size:10px;
+}
+.badge{
+  font-size:11px;
+  padding:5px 8px;
+}
+.top2{
+  height:22px;
+  font-size:12px;
+}
+.tabs{
+  height:36px;
+}
+.tab{
+  font-size:12px;
+  padding:5px 10px;
+}
+.main{
+  height:calc(100% - 72px - 36px - 42px);
+}
+.actions{
+  height:42px;
+}
+.action{
+  font-size:12px;
+  padding:6px 11px;
+}
+@media(max-width:420px){
+  .matrix{
+    grid-template-columns:82px 1fr;
+  }
+  .label{
+    font-size:15px;
+  }
+  .tick{
+    font-size:14px;
+  }
+  .bar{
+    font-size:13px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -238,9 +367,9 @@ html,body{
       <div class="cell label nations view view-nations hidden">주변국</div>
       <div class="cell plot view view-nations hidden">
         <div class="grid" style="left:7%"></div><div class="grid" style="left:25%"></div><div class="grid" style="left:62%"></div><div class="grid" style="left:69%"></div><div class="grid" style="left:94%"></div>
-        <div class="bar nationBar" style="left:1%;top:12px;width:94%" data-title="앗수르 (이라크 북부)" data-info="오늘날: 이라크 북부&#10;관련성경: 왕하 17~19장, 사 36~37장">앗수르</div>
-        <div class="bar nationBar" style="left:1%;top:40px;width:45%" data-title="아람 (시리아)" data-info="오늘날: 시리아 중심&#10;관련성경: 왕상 20장, 왕하 5장">아람(시리아)</div>
-        <div class="bar nationBar" style="left:1%;top:68px;width:41%" data-title="블레셋" data-info="오늘날: 이스라엘·가자 주변">블레셋</div>
+        <div class="bar nationBar" style="left:2%;top:12px;width:92%" data-title="앗수르 (이라크 북부)" data-info="오늘날: 이라크 북부&#10;관련성경: 왕하 17~19장, 사 36~37장">앗수르</div>
+        <div class="bar nationBar" style="left:2%;top:40px;width:43%" data-title="아람 (시리아)" data-info="오늘날: 시리아 중심&#10;관련성경: 왕상 20장, 왕하 5장">아람(시리아)</div>
+        <div class="bar nationBar" style="left:2%;top:68px;width:39%" data-title="블레셋" data-info="오늘날: 이스라엘·가자 주변">블레셋</div>
         <div class="bar nationBar" style="left:37%;top:96px;width:58%" data-title="모압" data-info="오늘날: 요르단">모압</div>
         <div class="bar nationBar" style="left:61%;top:124px;width:34%" data-title="암몬" data-info="오늘날: 요르단 암만 지역">암몬</div>
       </div>
@@ -302,15 +431,15 @@ tabs.forEach(t=>{
     });
     const matrix=document.querySelector('.matrix');
     if(v==='all'){
-      matrix.style.gridTemplateRows='38px 144px 124px 146px 128px 118px';
+      matrix.style.gridTemplateRows='34px 130px 112px 132px 116px 104px';
     }else if(v==='kings'){
-      matrix.style.gridTemplateRows='38px 144px 124px';
+      matrix.style.gridTemplateRows='34px 130px 112px';
     }else if(v==='prophets'){
-      matrix.style.gridTemplateRows='38px 146px';
+      matrix.style.gridTemplateRows='34px 132px';
     }else if(v==='nations'){
-      matrix.style.gridTemplateRows='38px 128px';
+      matrix.style.gridTemplateRows='34px 116px';
     }else if(v==='events'){
-      matrix.style.gridTemplateRows='38px 118px';
+      matrix.style.gridTemplateRows='34px 104px';
     }
   };
 });
