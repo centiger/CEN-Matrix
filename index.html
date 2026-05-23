@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>CEN-Matrix</title>
+<title>CEN-Matrix 상세판</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#132235">
 <style>
@@ -15,149 +15,73 @@ html,body{
   background:#f6efe4;color:#17130f;
 }
 .header{
-  height:72px;
-  background:linear-gradient(135deg,#102033,#18324d);
-  color:#fff;
-  padding:7px 10px 5px;
+  height:72px;background:linear-gradient(135deg,#102033,#18324d);
+  color:#fff;padding:7px 10px 5px;
 }
-.headerTop{
-  height:38px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+.headerTop{height:38px;display:flex;align-items:center;gap:10px}
 .menuBtn{
-  width:36px;height:36px;
-  border-radius:12px;
+  width:36px;height:36px;border-radius:12px;
   border:1px solid rgba(255,255,255,.35);
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  font-size:20px;
+  background:rgba(255,255,255,.08);color:#fff;font-size:20px;
 }
 .brand{flex:1;min-width:0}
-.brand b{
-  display:block;
-  font-size:20px;
-  font-weight:900;
-  line-height:1;
-}
-.brand span{
-  display:block;
-  font-size:10px;
-  color:#e8d7c4;
-  margin-top:4px;
-}
+.brand b{display:block;font-size:20px;font-weight:900;line-height:1}
+.brand span{display:block;font-size:10px;color:#e8d7c4;margin-top:4px}
 .period{
   border:1px solid rgba(255,255,255,.4);
-  border-radius:999px;
-  padding:6px 10px;
-  font-size:11px;
-  color:#ffe9b7;
-  white-space:nowrap;
+  border-radius:999px;padding:6px 10px;
+  font-size:11px;color:#ffe9b7;white-space:nowrap;
 }
 .headerBottom{
-  height:20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:12px;
-  font-weight:900;
+  height:20px;display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;font-weight:900;
 }
-.headerBottom span:last-child{
-  font-weight:600;
-  color:#eadbc9;
-}
+.headerBottom span:last-child{font-weight:600;color:#eadbc9}
 .tabs{
-  height:40px;
-  display:flex;
-  gap:7px;
-  align-items:center;
-  overflow-x:auto;
-  padding:5px 10px;
-  background:#f7efe1;
-  border-bottom:1px solid #d8c3a2;
+  height:40px;display:flex;gap:7px;align-items:center;overflow-x:auto;
+  padding:5px 10px;background:#f7efe1;border-bottom:1px solid #d8c3a2;
 }
 .tab{
-  flex:0 0 auto;
-  padding:6px 13px;
-  border-radius:999px;
-  border:1px solid #c4ab87;
-  background:#fffaf2;
-  font-size:12px;
-  font-weight:900;
-  color:#1e150f;
+  flex:0 0 auto;padding:6px 13px;border-radius:999px;
+  border:1px solid #c4ab87;background:#fffaf2;
+  font-size:12px;font-weight:900;color:#1e150f;
 }
-.tab.active{
-  background:#70451f;
-  color:#fff;
-  border-color:#70451f;
-}
+.tab.active{background:#70451f;color:#fff;border-color:#70451f}
 .main{
   height:calc(100% - 72px - 40px - 46px);
-  overflow:auto;
-  background:#fffdf8;
+  overflow:auto;background:#fffdf8;
 }
 .matrix{
-  min-width:980px;
+  min-width:1680px;
   display:grid;
-  grid-template-columns:110px 1fr;
+  grid-template-columns:76px 1fr;
 }
 .left{
-  position:sticky;
-  left:0;
-  z-index:20;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  font-weight:900;
-  border-right:none;
-  border-bottom:1px solid #d8c3a2;
+  position:sticky;left:0;z-index:20;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-weight:900;border-right:none;border-bottom:1px solid #d8c3a2;
 }
 .axisLeft{
-  height:44px;
-  font-size:16px;
-  background:#fff4df;
-  position:sticky;
-  top:0;
-  z-index:40;
+  height:44px;font-size:13px;background:#fff4df;
+  position:sticky;top:0;z-index:40;
 }
 .axis{
-  position:sticky;
-  top:0;
-  z-index:30;
-  height:44px;
-  background:#fffdf8;
-  border-bottom:1px solid #d8c3a2;
+  position:sticky;top:0;z-index:30;
+  height:44px;background:#fffdf8;border-bottom:1px solid #d8c3a2;
 }
 .tick{
-  position:absolute;
-  top:10px;
-  transform:translateX(-50%);
-  font-size:16px;
-  font-weight:900;
-  color:#111;
+  position:absolute;top:10px;transform:translateX(-50%);
+  font-size:15px;font-weight:900;color:#111;white-space:nowrap;
 }
 .tick.red{color:#b51313}
 .tick:after{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:22px;
-  width:1px;
-  height:8px;
-  background:#bca88f;
+  content:"";position:absolute;left:50%;top:22px;width:1px;height:8px;background:#bca88f;
 }
 .grid{
-  position:absolute;
-  top:0;
-  bottom:0;
-  border-left:1px dashed #e0ceb5;
+  position:absolute;top:0;bottom:0;border-left:1px dashed #e0ceb5;
 }
 .rowLabel{
-  font-size:14px;
-  line-height:1.15;
-  padding:4px;
+  font-size:11.5px;line-height:1.08;padding:1px;letter-spacing:-0.4px;
 }
 .labelNorth{background:#dfeeff;}
 .labelSouth{background:#e4f2dc;}
@@ -165,102 +89,55 @@ html,body{
 .labelNations{background:#ffe9c8;}
 .labelEvents{background:#ffe8e5;}
 .plot{
-  position:relative;
-  overflow:visible;
-  border-bottom:1px solid #d8c3a2;
-  background:#fffdf8;
+  position:relative;overflow:visible;border-bottom:1px solid #d8c3a2;background:#fffdf8;
 }
 .bar{
-  position:absolute;
-  height:20px;
-  line-height:20px;
-  border-radius:0;
-  padding:0 6px;
-  font-size:11px;
-  font-weight:900;
-  color:#111;
-  border:1px solid rgba(0,0,0,.12);
-  white-space:nowrap;
-  overflow:hidden;
+  position:absolute;height:18px;line-height:18px;border-radius:0;
+  padding:0 5px;font-size:10.5px;font-weight:900;color:#111;
+  border:1px solid rgba(0,0,0,.14);white-space:nowrap;overflow:hidden;
+  text-align:center;
 }
 .northBar{background:#dfeeff;border-color:#9fc2ea;}
 .southBar{background:#e4f2dc;border-color:#9cc887;}
 .prophetBar{background:#eee4ff;border-color:#b89ce7;}
-.nationBar{background:#ffe9c8;border-color:#efa74c;}
+.nationBar{background:#ffe9c8;border-color:#efa74c;text-align:left;}
 .dot{
-  position:absolute;
-  width:11px;
-  height:11px;
-  border-radius:50%;
-  background:#d31919;
-  transform:translateX(-50%);
+  position:absolute;width:10px;height:10px;border-radius:50%;
+  background:#d31919;transform:translateX(-50%);
 }
 .eventText{
-  position:absolute;
-  width:76px;
-  transform:translateX(-50%);
-  text-align:center;
-  font-size:11px;
-  font-weight:900;
-  line-height:1.15;
+  position:absolute;width:72px;transform:translateX(-50%);
+  text-align:center;font-size:10px;font-weight:900;line-height:1.12;
 }
 .actions{
-  height:46px;
-  display:flex;
-  gap:7px;
-  overflow-x:auto;
-  align-items:center;
-  padding:5px 10px;
-  background:#f7efe1;
-  border-top:1px solid #d8c3a2;
+  height:46px;display:flex;gap:7px;overflow-x:auto;align-items:center;
+  padding:5px 10px;background:#f7efe1;border-top:1px solid #d8c3a2;
 }
 .action{
-  flex:0 0 auto;
-  padding:7px 12px;
-  border-radius:12px;
-  border:1px solid #c4ab87;
-  background:#fffaf2;
-  font-size:12px;
-  font-weight:900;
+  flex:0 0 auto;padding:7px 12px;border-radius:12px;
+  border:1px solid #c4ab87;background:#fffaf2;font-size:12px;font-weight:900;
 }
 .hidden{display:none!important}
-@media(max-width:420px){
-  .matrix{grid-template-columns:100px 1fr;}
-  .rowLabel{font-size:13px;}
-  .axisLeft{font-size:15px;}
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,.38);z-index:100;
+  display:none;align-items:center;justify-content:center;padding:16px;
 }
-
-/* v24: narrow left fixed menu only */
-.matrix{
-  grid-template-columns:78px 1fr !important;
+.modal.show{display:flex}
+.card{
+  width:min(430px,100%);background:#fffaf2;border:1px solid #d1b58a;
+  border-radius:16px;padding:15px;
 }
-.left{
-  padding-left:0 !important;
-  padding-right:0 !important;
-}
-.rowLabel{
-  font-size:12px !important;
-  line-height:1.1 !important;
-  padding:1px !important;
-  letter-spacing:-0.4px;
-}
-.axisLeft{
-  font-size:13px !important;
-  padding:0 !important;
+.cardTitle{font-size:18px;font-weight:900;margin-bottom:7px;color:#3c2512}
+.cardBody{font-size:13px;line-height:1.55;white-space:pre-line;color:#4b3828}
+.close{
+  width:100%;margin-top:12px;border:0;background:#70451f;color:white;
+  border-radius:11px;padding:10px;font-weight:900;
 }
 @media(max-width:420px){
-  .matrix{
-    grid-template-columns:74px 1fr !important;
-  }
-  .rowLabel{
-    font-size:11.5px !important;
-    line-height:1.08 !important;
-  }
-  .axisLeft{
-    font-size:12.5px !important;
-  }
+  .matrix{grid-template-columns:72px 1fr;}
+  .rowLabel{font-size:11px;}
+  .axisLeft{font-size:12.5px;}
 }
-
 </style>
 </head>
 <body>
@@ -289,76 +166,121 @@ html,body{
 </nav>
 
 <main class="main">
-<div class="matrix">
+<div class="matrix" id="matrix">
 
 <div class="left axisLeft">연대</div>
 <div class="axis">
-  <div class="tick" style="left:7%">BC 930</div>
-  <div class="tick" style="left:25%">BC 850</div>
-  <div class="tick red" style="left:62%">BC 722</div>
-  <div class="tick" style="left:83%">BC 622</div>
+  <div class="tick" style="left:4%">BC 930</div>
+  <div class="tick" style="left:16%">BC 880</div>
+  <div class="tick" style="left:27%">BC 830</div>
+  <div class="tick" style="left:39%">BC 780</div>
+  <div class="tick red" style="left:53%">BC 722</div>
+  <div class="tick" style="left:58%">BC 701</div>
+  <div class="tick" style="left:77%">BC 622</div>
+  <div class="tick red" style="left:94%">BC 586</div>
 </div>
 
 <div class="left rowLabel labelNorth view kings">북이스라엘<br>왕</div>
-<div class="plot view kings" style="height:112px">
-  <div class="grid" style="left:7%"></div>
-  <div class="grid" style="left:25%"></div>
-  <div class="grid" style="left:62%"></div>
-  <div class="grid" style="left:83%"></div>
+<div class="plot view kings" style="height:300px">
+  <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="bar northBar" style="left:4%;top:16px;width:34%">여로보암 1세</div>
-  <div class="bar northBar" style="left:50%;top:58px;width:34%">바아사</div>
+  <div class="bar northBar" data-title="여로보암 1세" data-info="연대: BC 930~909&#10;관련성경: 왕상 12장&#10;의미: 북이스라엘 금송아지 숭배 체계의 출발점" style="left:4%;top:10px;width:8%">여로보암 1세</div>
+  <div class="bar northBar" data-title="나답" data-info="연대: BC 909~908" style="left:11%;top:32px;width:3%">나답</div>
+  <div class="bar northBar" data-title="바아사" data-info="연대: BC 908~886" style="left:12%;top:54px;width:8%">바아사</div>
+  <div class="bar northBar" data-title="엘라" data-info="연대: BC 886~885" style="left:19%;top:76px;width:3%">엘라</div>
+  <div class="bar northBar" data-title="시므리" data-info="연대: BC 885" style="left:21%;top:98px;width:3%">시므리</div>
+  <div class="bar northBar" data-title="오므리" data-info="연대: BC 885~874&#10;사마리아를 북이스라엘 수도로 삼은 왕조의 기반" style="left:22%;top:120px;width:7%">오므리</div>
+  <div class="bar northBar" data-title="아합" data-info="연대: BC 874~853&#10;관련 인물: 이세벨, 엘리야&#10;관련성경: 왕상 16~22장" style="left:28%;top:142px;width:9%">아합</div>
+  <div class="bar northBar" data-title="아하시야" data-info="연대: BC 853~852" style="left:36%;top:164px;width:5%">아하시야</div>
+  <div class="bar northBar" data-title="여호람" data-info="연대: BC 852~841" style="left:38%;top:186px;width:7%">여호람</div>
+  <div class="bar northBar" data-title="예후" data-info="연대: BC 841~814&#10;아합 왕조 심판과 예후 왕조 시작" style="left:44%;top:208px;width:10%">예후</div>
+  <div class="bar northBar" data-title="여호아하스" data-info="연대: BC 814~798" style="left:53%;top:230px;width:7%">여호아하스</div>
+  <div class="bar northBar" data-title="요아스" data-info="연대: BC 798~782" style="left:59%;top:252px;width:7%">요아스</div>
+  <div class="bar northBar" data-title="여로보암 2세~호세아" data-info="연대: BC 793~722&#10;북이스라엘 말기 왕들&#10;호세아는 북이스라엘 마지막 왕" style="left:64%;top:274px;width:26%">여로보암 2세 ~ 호세아</div>
 </div>
 
 <div class="left rowLabel labelSouth view kings">남유다<br>왕</div>
-<div class="plot view kings" style="height:112px">
-  <div class="grid" style="left:7%"></div>
-  <div class="grid" style="left:25%"></div>
-  <div class="grid" style="left:62%"></div>
-  <div class="grid" style="left:83%"></div>
+<div class="plot view kings" style="height:344px">
+  <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="bar southBar" style="left:4%;top:16px;width:30%">르호보암</div>
-  <div class="bar southBar" style="left:46%;top:58px;width:38%">아사</div>
+  <div class="bar southBar" data-title="르호보암" data-info="연대: BC 930~913&#10;관련성경: 왕상 12장, 대하 10장" style="left:4%;top:10px;width:7%">르호보암</div>
+  <div class="bar southBar" data-title="아비야" data-info="연대: BC 913~911" style="left:10%;top:32px;width:4%">아비야</div>
+  <div class="bar southBar" data-title="아사" data-info="연대: BC 911~870" style="left:12%;top:54px;width:14%">아사</div>
+  <div class="bar southBar" data-title="여호사밧" data-info="연대: BC 870~848&#10;관련성경: 대하 17~20장" style="left:25%;top:76px;width:9%">여호사밧</div>
+  <div class="bar southBar" data-title="여호람" data-info="연대: BC 848~841" style="left:33%;top:98px;width:5%">여호람</div>
+  <div class="bar southBar" data-title="아하시야" data-info="연대: BC 841" style="left:37%;top:120px;width:4%">아하시야</div>
+  <div class="bar southBar" data-title="아달랴" data-info="연대: BC 841~835" style="left:38%;top:142px;width:5%">아달랴</div>
+  <div class="bar southBar" data-title="요아스" data-info="연대: BC 835~796" style="left:42%;top:164px;width:13%">요아스</div>
+  <div class="bar southBar" data-title="아마샤" data-info="연대: BC 796~767" style="left:54%;top:186px;width:11%">아마샤</div>
+  <div class="bar southBar" data-title="웃시야" data-info="연대: BC 792~740&#10;이사야 소명 시기와 연결" style="left:60%;top:208px;width:18%">웃시야</div>
+  <div class="bar southBar" data-title="요담" data-info="연대: BC 750~732" style="left:69%;top:230px;width:8%">요담</div>
+  <div class="bar southBar" data-title="아하스" data-info="연대: BC 735~716" style="left:73%;top:252px;width:8%">아하스</div>
+  <div class="bar southBar" data-title="히스기야" data-info="연대: BC 716~687&#10;관련성경: 왕하 18~20장, 사 36~39장" style="left:79%;top:274px;width:11%">히스기야</div>
+  <div class="bar southBar" data-title="므낫세~시드기야" data-info="연대: BC 687~586&#10;남유다 말기 왕들&#10;시드기야 때 예루살렘 함락" style="left:87%;top:296px;width:10%">므낫세~시드기야</div>
 </div>
 
 <div class="left rowLabel labelProphets view prophets">선지자</div>
-<div class="plot view prophets" style="height:132px">
-  <div class="grid" style="left:7%"></div>
-  <div class="grid" style="left:25%"></div>
-  <div class="grid" style="left:62%"></div>
-  <div class="grid" style="left:83%"></div>
+<div class="plot view prophets" style="height:278px">
+  <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="bar prophetBar" style="left:4%;top:16px;width:42%">엘리야</div>
-  <div class="bar prophetBar" style="left:10%;top:58px;width:58%">엘리사</div>
+  <div class="bar prophetBar" data-title="아히야" data-info="여로보암 1세와 관련된 선지자&#10;관련성경: 왕상 11장, 14장" style="left:3%;top:10px;width:11%">아히야</div>
+  <div class="bar prophetBar" data-title="스마야" data-info="왕국 분열 직후 유다에 경고한 선지자&#10;관련성경: 왕상 12장, 대하 11장" style="left:4%;top:32px;width:9%">스마야</div>
+  <div class="bar prophetBar" data-title="엘리야" data-info="대략 BC 875~850경&#10;관련 왕: 아합&#10;관련성경: 왕상 17~19장" style="left:27%;top:54px;width:14%">엘리야</div>
+  <div class="bar prophetBar" data-title="엘리사" data-info="대략 BC 854~796경&#10;관련성경: 왕하 2~13장" style="left:35%;top:76px;width:22%">엘리사</div>
+  <div class="bar prophetBar" data-title="요나" data-info="여로보암 2세 시기와 관련&#10;관련성경: 왕하 14:25, 요나" style="left:58%;top:98px;width:8%">요나</div>
+  <div class="bar prophetBar" data-title="아모스" data-info="대략 BC 760경&#10;북이스라엘의 사회 불의와 형식 종교를 책망" style="left:66%;top:120px;width:8%">아모스</div>
+  <div class="bar prophetBar" data-title="호세아" data-info="대략 BC 755~722경&#10;언약적 사랑과 배반한 이스라엘의 회개 촉구" style="left:68%;top:142px;width:16%">호세아</div>
+  <div class="bar prophetBar" data-title="이사야" data-info="대략 BC 740~680경&#10;관련 왕: 웃시야, 요담, 아하스, 히스기야" style="left:73%;top:164px;width:17%">이사야</div>
+  <div class="bar prophetBar" data-title="미가" data-info="대략 BC 735~700경&#10;관련성경: 미가" style="left:76%;top:186px;width:10%">미가</div>
+  <div class="bar prophetBar" data-title="나훔" data-info="앗수르 니느웨 심판 예언" style="left:84%;top:208px;width:8%">나훔</div>
+  <div class="bar prophetBar" data-title="스바냐" data-info="요시야 시대 활동&#10;관련성경: 스바냐" style="left:88%;top:230px;width:7%">스바냐</div>
+  <div class="bar prophetBar" data-title="예레미야" data-info="대략 BC 627~586경&#10;요시야~시드기야 시대&#10;관련성경: 예레미야, 왕하 24~25장" style="left:89%;top:252px;width:9%">예레미야</div>
 </div>
 
 <div class="left rowLabel labelNations view nations">주변국</div>
-<div class="plot view nations" style="height:116px">
-  <div class="grid" style="left:7%"></div>
-  <div class="grid" style="left:25%"></div>
-  <div class="grid" style="left:62%"></div>
-  <div class="grid" style="left:83%"></div>
+<div class="plot view nations" style="height:190px">
+  <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="bar nationBar" style="left:4%;top:14px;width:90%">앗수르 (이라크 북부)</div>
-  <div class="bar nationBar" style="left:4%;top:48px;width:90%">아람 (시리아)</div>
-  <div class="bar nationBar" style="left:4%;top:82px;width:90%">블레셋 (가자)</div>
+  <div class="bar nationBar" data-title="애굽 (이집트)" data-info="오늘날: 이집트&#10;분열왕국 전후 계속 영향력을 행사" style="left:1%;top:10px;width:96%">애굽 (이집트)</div>
+  <div class="bar nationBar" data-title="아람 (시리아)" data-info="오늘날: 시리아&#10;북이스라엘과 잦은 전쟁" style="left:18%;top:32px;width:45%">아람 (시리아)</div>
+  <div class="bar nationBar" data-title="두로·시돈 (레바논)" data-info="오늘날: 레바논 해안&#10;이세벨, 바알 숭배 유입과 관련" style="left:24%;top:54px;width:28%">두로·시돈 (레바논)</div>
+  <div class="bar nationBar" data-title="모압 (요르단)" data-info="오늘날: 요르단&#10;이스라엘·유다와 갈등" style="left:32%;top:76px;width:52%">모압 (요르단)</div>
+  <div class="bar nationBar" data-title="암몬 (요르단)" data-info="오늘날: 요르단 암만 지역" style="left:32%;top:98px;width:54%">암몬 (요르단)</div>
+  <div class="bar nationBar" data-title="에돔 (요르단 남부)" data-info="오늘날: 요르단 남부·아라바 지역" style="left:34%;top:120px;width:56%">에돔 (요르단 남부)</div>
+  <div class="bar nationBar" data-title="앗수르 (이라크 북부)" data-info="오늘날: 이라크 북부&#10;북이스라엘 멸망, 히스기야 시대 위기와 관련" style="left:58%;top:142px;width:30%">앗수르 (이라크 북부)</div>
+  <div class="bar nationBar" data-title="바벨론 (이라크)" data-info="오늘날: 이라크&#10;남유다 멸망과 포로기의 직접 배경" style="left:86%;top:164px;width:12%">바벨론 (이라크)</div>
 </div>
 
 <div class="left rowLabel labelEvents view events">핵심<br>사건</div>
-<div class="plot view events" style="height:118px">
-  <div class="grid" style="left:7%"></div>
-  <div class="grid" style="left:25%"></div>
-  <div class="grid" style="left:62%"></div>
-  <div class="grid" style="left:83%"></div>
+<div class="plot view events" style="height:188px">
+  <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="dot" style="left:7%;top:28px"></div>
-  <div class="eventText" style="left:7%;top:46px">BC930<br>왕국분열</div>
+  <div class="dot" data-title="왕국 분열" data-info="연도: BC 930&#10;관련성경: 왕상 12장, 대하 10장&#10;핵심 의미: 솔로몬 이후 왕국이 북이스라엘과 남유다로 갈라짐" style="left:4%;top:16px"></div>
+  <div class="eventText" style="left:4%;top:32px">BC930<br>왕국분열</div>
 
-  <div class="dot" style="left:25%;top:28px"></div>
-  <div class="eventText" style="left:25%;top:46px">BC850<br>갈멜산</div>
+  <div class="dot" data-title="아합과 바알 숭배 확산" data-info="연도: 대략 BC 870년대 이후&#10;관련성경: 왕상 16장&#10;핵심 의미: 이세벨과 함께 바알 숭배가 북이스라엘에 깊이 들어옴" style="left:30%;top:16px"></div>
+  <div class="eventText" style="left:30%;top:32px">아합<br>바알숭배</div>
 
-  <div class="dot" style="left:62%;top:28px"></div>
-  <div class="eventText" style="left:62%;top:46px">BC722<br>북이스라엘<br>멸망</div>
+  <div class="dot" data-title="갈멜산 대결" data-info="연도: 대략 BC 850경&#10;관련성경: 왕상 18장&#10;핵심 의미: 여호와와 바알 사이의 참 하나님 대결" style="left:36%;top:76px"></div>
+  <div class="eventText" style="left:36%;top:92px">BC850경<br>갈멜산</div>
+
+  <div class="dot" data-title="예후의 아합 왕조 심판" data-info="연도: BC 841경&#10;관련성경: 왕하 9~10장&#10;핵심 의미: 아합 집에 대한 심판" style="left:44%;top:16px"></div>
+  <div class="eventText" style="left:44%;top:32px">BC841<br>예후</div>
+
+  <div class="dot" data-title="아모스·호세아의 경고" data-info="연도: BC 8세기 중후반&#10;관련성경: 아모스, 호세아&#10;핵심 의미: 북이스라엘 멸망 전 마지막 경고" style="left:70%;top:76px"></div>
+  <div class="eventText" style="left:70%;top:92px">아모스<br>호세아</div>
+
+  <div class="dot" data-title="북이스라엘 멸망" data-info="연도: BC 722&#10;주변국: 앗수르 (이라크 북부)&#10;관련성경: 왕하 17장&#10;신학 의미: 언약 불순종에 대한 심판" style="left:53%;top:136px"></div>
+  <div class="eventText" style="left:53%;top:152px">BC722<br>북이스라엘<br>멸망</div>
+
+  <div class="dot" data-title="히스기야와 앗수르 위기" data-info="연도: BC 701&#10;관련성경: 왕하 18~19장, 사 36~37장&#10;핵심 의미: 앗수르 위기 속에서 하나님을 의지한 사건" style="left:58%;top:16px"></div>
+  <div class="eventText" style="left:58%;top:32px">BC701<br>앗수르위기</div>
+
+  <div class="dot" data-title="요시야 개혁" data-info="연도: BC 622&#10;관련성경: 왕하 22~23장&#10;핵심 의미: 율법책 발견과 예배 개혁" style="left:77%;top:76px"></div>
+  <div class="eventText" style="left:77%;top:92px">BC622<br>요시야개혁</div>
+
+  <div class="dot" data-title="예루살렘 함락" data-info="연도: BC 586&#10;주변국: 바벨론 (이라크)&#10;관련성경: 왕하 25장, 렘 39장&#10;핵심 의미: 남유다 멸망과 포로기의 시작" style="left:94%;top:136px"></div>
+  <div class="eventText" style="left:94%;top:152px">BC586<br>예루살렘<br>함락</div>
 </div>
 
 </div>
@@ -371,9 +293,18 @@ html,body{
   <button class="action">핵심사건</button>
 </footer>
 
+<div class="modal" id="modal">
+  <div class="card">
+    <div class="cardTitle" id="modalTitle"></div>
+    <div class="cardBody" id="modalBody"></div>
+    <button class="close" id="closeModal">닫기</button>
+  </div>
+</div>
+
 <script>
 const tabs=[...document.querySelectorAll('.tab')];
 const views=[...document.querySelectorAll('.view')];
+
 tabs.forEach(tab=>{
   tab.onclick=()=>{
     tabs.forEach(t=>t.classList.remove('active'));
@@ -384,6 +315,21 @@ tabs.forEach(tab=>{
     });
   };
 });
+
+const modal=document.getElementById('modal');
+const mt=document.getElementById('modalTitle');
+const mb=document.getElementById('modalBody');
+
+document.querySelectorAll('[data-title]').forEach(el=>{
+  el.onclick=()=>{
+    mt.textContent=el.dataset.title;
+    mb.textContent=el.dataset.info||'준비중입니다.';
+    modal.classList.add('show');
+  };
+});
+document.getElementById('closeModal').onclick=()=>modal.classList.remove('show');
+modal.onclick=e=>{ if(e.target===modal) modal.classList.remove('show'); };
+
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('./sw.js').catch(()=>{});
 }
