@@ -3,8 +3,8 @@
   "short_name": "CEN-Matrix",
   "display": "standalone",
   "start_url": "./index.html",
-  "background_color": "#f6efe4",
-  "theme_color": "#132235",
+  "background_color": "#f5ecdf",
+  "theme_color": "#172437",
   "icons": [
     {
       "src": "icons/icon-192.png",
