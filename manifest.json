@@ -1,10 +1,10 @@
 {
   "name": "CEN-Matrix",
   "short_name": "CEN-Matrix",
-  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#f5ead8",
-  "theme_color": "#172337",
+  "start_url": "./index.html",
+  "background_color": "#f5ecdf",
+  "theme_color": "#172437",
   "icons": [
     {
       "src": "icons/icon-192.png",
