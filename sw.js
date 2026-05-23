@@ -1,2 +1,4 @@
-const CEN_MATRIX_VERSION='v22-left-label-fix';
-self.addEventListener('fetch',()=>{});
+const CACHE_NAME='cen-matrix-v23-capture-style';
+self.addEventListener('install',e=>{self.skipWaiting();});
+self.addEventListener('activate',e=>{self.clients.claim();});
+self.addEventListener('fetch',e=>{});
