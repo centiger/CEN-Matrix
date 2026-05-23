@@ -173,6 +173,14 @@ html,body{
   text-align:center;
 }
 
+
+/* v30: split north/south king filters */
+.tabs{gap:5px;}
+.tab{padding-left:10px;padding-right:10px;}
+@media(max-width:420px){
+  .tab{font-size:11px;padding-left:8px;padding-right:8px;}
+}
+
 </style>
 </head>
 <body>
@@ -188,13 +196,14 @@ html,body{
   </div>
   <div class="headerBottom">
     <span>분열왕국시대</span>
-    <span>왕 · 선지자 · 주변국 · 사건</span>
+    <span>북왕 · 남왕 · 선지자 · 주변국 · 사건</span>
   </div>
 </header>
 
 <nav class="tabs">
   <button class="tab active" data-view="all">전체</button>
-  <button class="tab" data-view="kings">왕</button>
+  <button class="tab" data-view="northking">북이스라엘왕</button>
+  <button class="tab" data-view="southking">남유다왕</button>
   <button class="tab" data-view="prophets">선지자</button>
   <button class="tab" data-view="nations">주변국</button>
   <button class="tab" data-view="events">사건</button>
@@ -215,8 +224,8 @@ html,body{
   <div class="tick red" style="left:94%">BC 586</div>
 </div>
 
-<div class="left rowLabel labelNorth view kings">북이스라엘<br>왕</div>
-<div class="plot view kings" style="height:300px">
+<div class="left rowLabel labelNorth view northking">북이스라엘<br>왕</div>
+<div class="plot view northking" style="height:300px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
   <div class="bar northBar" data-title="여로보암 1세" data-info="연대: BC 930~909&#10;관련성경: 왕상 12장&#10;의미: 북이스라엘 금송아지 숭배 체계의 출발점" style="left:4%;top:10px;width:8%">여로보암 1세</div>
@@ -234,8 +243,8 @@ html,body{
   <div class="bar northBar" data-title="여로보암 2세~호세아" data-info="연대: BC 793~722&#10;북이스라엘 말기 왕들&#10;호세아는 북이스라엘 마지막 왕" style="left:64%;top:274px;width:26%">여로보암 2세 ~ 호세아</div>
 </div>
 
-<div class="left rowLabel labelSouth view kings">남유다<br>왕</div>
-<div class="plot view kings" style="height:344px">
+<div class="left rowLabel labelSouth view southking">남유다<br>왕</div>
+<div class="plot view southking" style="height:344px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
   <div class="bar southBar" data-title="르호보암" data-info="연대: BC 930~913&#10;관련성경: 왕상 12장, 대하 10장" style="left:4%;top:10px;width:7%">르호보암</div>
@@ -341,7 +350,7 @@ const tabs=[...document.querySelectorAll('.tab')];
 const views=[...document.querySelectorAll('.view')];
 
 const filterTabs = tabs.filter(t => t.dataset.view !== 'all');
-const allKeys = ['kings','prophets','nations','events'];
+const allKeys = ['northking','southking','prophets','nations','events'];
 let activeFilters = new Set(allKeys);
 
 function applyFilters(){
