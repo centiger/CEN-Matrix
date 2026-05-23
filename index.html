@@ -139,178 +139,46 @@ html,body{
   .axisLeft{font-size:12.5px;}
 }
 
-/* v26: repeated labels for long horizontal bars */
-.bar.repeat{
-  display:flex;
-  align-items:center;
-  justify-content:space-around;
-  gap:18px;
-  text-align:center;
+/* v40: stable full-range restoration */
+.matrix{
+  min-width:1680px !important;
+  grid-template-columns:76px 1fr !important;
 }
-.bar.repeat span{
-  flex:0 0 auto;
-  min-width:100px;
-  text-align:center;
+.left{
+  border-right:none !important;
+  white-space:normal !important;
+  word-break:keep-all !important;
+  overflow:hidden !important;
 }
-.bar.repeat.long span{
-  min-width:150px;
-}
-
-
-/* v27: multi-select filter buttons */
-.tab.active::before{content:"✓ ";font-weight:900;}
-.tab.all-on{background:#70451f;color:#fff;border-color:#70451f;}
-
-
-/* v29: reduce empty text gaps inside medium/long nation bars */
-.bar.repeat.medium{
-  justify-content:space-around;
-  gap:14px;
-}
-.bar.repeat.medium span{
-  flex:0 0 auto;
-  min-width:96px;
-  text-align:center;
-}
-
-
-/* v30: split north/south king filters */
-.tabs{gap:5px;}
-.tab{padding-left:10px;padding-right:10px;}
-@media(max-width:420px){
-  .tab{font-size:11px;padding-left:8px;padding-right:8px;}
-}
-
-
-/* v33: kings as single succession lines */
-.plot.view.northking,
-.plot.view.southking{
-  height:58px !important;
-}
-.rowLabel.view.northking,
-.rowLabel.view.southking{
-  min-height:58px !important;
-}
-.northBar,
-.southBar{
-  top:18px !important;
-  height:20px !important;
-  line-height:20px !important;
-  font-size:9px !important;
-  padding:0 3px !important;
-  text-align:center;
-}
-.northBar.short,
-.southBar.short{
-  font-size:8px !important;
-}
-.northBar.tiny,
-.southBar.tiny{
-  font-size:7px !important;
-  padding:0 1px !important;
-}
-
-
-/* v37: conservative king fix only */
-.northBar::before,
-.northBar::after,
-.southBar::before,
-.southBar::after{
-  content:none !important;
-}
-
-/* Keep original king bars. Only short kings get helper label + arrow. */
-.northBar.k-short,
-.southBar.k-short{
-  color:transparent !important;
-  overflow:visible !important;
-}
-
-.northBar.k-short::after,
-.southBar.k-short::after{
-  content:attr(data-short) !important;
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  color:#111;
-  font-size:8.5px;
-  font-weight:900;
-  line-height:1;
-  white-space:nowrap;
-  background:rgba(255,253,248,.92);
-  border:1px solid rgba(0,0,0,.08);
-  border-radius:3px;
-  padding:1px 2px;
-  pointer-events:none;
-}
-
-.northBar.k-up::after,
-.southBar.k-up::after{
-  top:-16px;
-}
-.northBar.k-down::after,
-.southBar.k-down::after{
-  top:22px;
-}
-
-.northBar.k-short::before,
-.southBar.k-short::before{
-  content:"" !important;
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  width:0;
-  height:0;
-  border-left:3px solid transparent;
-  border-right:3px solid transparent;
-  pointer-events:none;
-}
-
-.northBar.k-up::before,
-.southBar.k-up::before{
-  top:-4px;
-  border-top:5px solid #333;
-}
-.northBar.k-down::before,
-.southBar.k-down::before{
-  top:18px;
-  border-bottom:5px solid #333;
-}
-
-/* North kingdom ends at the fall of Samaria; keep marker subtle */
-.kingFallMarker{
-  position:absolute;
-  top:45px;
-  transform:translateX(-50%);
-  color:#b51313;
-  font-size:8px;
-  font-weight:900;
-  white-space:nowrap;
-  background:#fff3f3;
-  border:1px solid #e1a0a0;
-  padding:1px 3px;
-  border-radius:3px;
-  z-index:5;
-}
-
-
-/* v39: restore fixed vertical left menu layout */
 .left.rowLabel{
-  width:54px !important;
-  min-width:54px !important;
-  max-width:54px !important;
+  width:76px !important;
+  min-width:76px !important;
+  max-width:76px !important;
   display:flex !important;
   align-items:center !important;
   justify-content:center !important;
   text-align:center !important;
-  line-height:1.15 !important;
-  white-space:normal !important;
-  word-break:keep-all !important;
-  overflow:hidden !important;
-  flex-shrink:0 !important;
+  font-size:11.5px !important;
+  line-height:1.12 !important;
+  padding:1px !important;
+}
+.axisLeft{
+  width:76px !important;
+  min-width:76px !important;
+  max-width:76px !important;
+  font-size:13px !important;
 }
 .left.rowLabel br{
   display:block !important;
+}
+.axis{
+  overflow:visible !important;
+}
+.tick{
+  white-space:nowrap !important;
+}
+.plot{
+  overflow:visible !important;
 }
 
 </style>
@@ -328,14 +196,13 @@ html,body{
   </div>
   <div class="headerBottom">
     <span>분열왕국시대</span>
-    <span>북왕 · 남왕 · 선지자 · 주변국 · 사건</span>
+    <span>왕 · 선지자 · 주변국 · 사건</span>
   </div>
 </header>
 
 <nav class="tabs">
   <button class="tab active" data-view="all">전체</button>
-  <button class="tab" data-view="northking">북이스라엘<br>왕</button>
-  <button class="tab" data-view="southking">남유다<br>왕</button>
+  <button class="tab" data-view="kings">왕</button>
   <button class="tab" data-view="prophets">선지자</button>
   <button class="tab" data-view="nations">주변국</button>
   <button class="tab" data-view="events">사건</button>
@@ -356,46 +223,43 @@ html,body{
   <div class="tick red" style="left:94%">BC 586</div>
 </div>
 
-<div class="left rowLabel labelNorth view northking">북이스라엘<br>왕</div>
-<div class="plot view northking" style="height:58px">
+<div class="left rowLabel labelNorth view kings">북이스라엘<br>왕</div>
+<div class="plot view kings" style="height:300px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="bar northBar" data-title="여로보암 1세" data-info="연대: BC 930~909&#10;관련성경: 왕상 12장&#10;의미: 북이스라엘 금송아지 숭배 체계의 출발점" style="left:4%;top:18px;width:6.2%;">여로보암 1세</div>
-  <div class="bar northBar tiny k-short k-up" data-title="나답" data-short="나답" data-info="연대: BC 909~908" style="left:10.2%;top:18px;width:1.1%;">나답</div>
-  <div class="bar northBar short" data-title="바아사" data-info="연대: BC 908~886" style="left:11.3%;top:18px;width:6.4%;">바아사</div>
-  <div class="bar northBar tiny k-short k-down" data-title="엘라" data-short="엘라" data-info="연대: BC 886~885" style="left:17.7%;top:18px;width:1.1%;">엘라</div>
-  <div class="bar northBar tiny k-short k-up" data-title="시므리" data-short="시므리" data-info="연대: BC 885" style="left:18.8%;top:18px;width:0.8%;">시므리</div>
-  <div class="bar northBar tiny k-short k-down" data-title="오므리" data-short="오므리" data-info="연대: BC 885~874&#10;사마리아를 북이스라엘 수도로 삼은 왕조의 기반" style="left:19.6%;top:18px;width:3.2%;">오므리</div>
-  <div class="bar northBar" data-title="아합" data-info="연대: BC 874~853&#10;관련 인물: 이세벨, 엘리야&#10;관련성경: 왕상 16~22장" style="left:22.8%;top:18px;width:6.1%;">아합</div>
-  <div class="bar northBar tiny k-short k-up" data-title="아하시야" data-short="아하시야" data-info="연대: BC 853~852" style="left:30.1%;top:18px;width:0.8%;">아하시야</div>
-  <div class="bar northBar tiny k-short k-down" data-title="여호람" data-short="여호람" data-info="연대: BC 852~841" style="left:28.1%;top:18px;width:2%;">여호람</div>
-  <div class="bar northBar" data-title="예후" data-info="연대: BC 841~814&#10;아합 왕조 심판과 예후 왕조 시작" style="left:33.2%;top:18px;width:7.8%;">예후</div>
-  <div class="bar northBar short k-short k-up" data-title="여호아하스" data-short="여호아하스" data-info="연대: BC 814~798" style="left:41%;top:18px;width:4.6%;">여호아하스</div>
-  <div class="bar northBar short k-short k-down" data-title="요아스" data-short="요아스" data-info="연대: BC 798~782" style="left:32.6%;top:18px;width:11.3%;">요아스</div>
-  <div class="bar northBar" data-title="여로보암 2세~호세아" data-info="연대: BC 793~722&#10;북이스라엘 말기 왕들: 여로보암 2세 이후 스가랴·살룸·므나헴·브가히야·베가·호세아로 이어지며 BC 722에 멸망&#10;호세아는 북이스라엘 마지막 왕" style="left:50.2%;top:18px;width:18%;">여로보암 2세 ~ 호세아</div>
+  <div class="bar northBar" data-title="여로보암 1세" data-info="연대: BC 930~909&#10;관련성경: 왕상 12장&#10;의미: 북이스라엘 금송아지 숭배 체계의 출발점" style="left:4%;top:10px;width:8%">여로보암 1세</div>
+  <div class="bar northBar" data-title="나답" data-info="연대: BC 909~908" style="left:11%;top:32px;width:3%">나답</div>
+  <div class="bar northBar" data-title="바아사" data-info="연대: BC 908~886" style="left:12%;top:54px;width:8%">바아사</div>
+  <div class="bar northBar" data-title="엘라" data-info="연대: BC 886~885" style="left:19%;top:76px;width:3%">엘라</div>
+  <div class="bar northBar" data-title="시므리" data-info="연대: BC 885" style="left:21%;top:98px;width:3%">시므리</div>
+  <div class="bar northBar" data-title="오므리" data-info="연대: BC 885~874&#10;사마리아를 북이스라엘 수도로 삼은 왕조의 기반" style="left:22%;top:120px;width:7%">오므리</div>
+  <div class="bar northBar" data-title="아합" data-info="연대: BC 874~853&#10;관련 인물: 이세벨, 엘리야&#10;관련성경: 왕상 16~22장" style="left:28%;top:142px;width:9%">아합</div>
+  <div class="bar northBar" data-title="아하시야" data-info="연대: BC 853~852" style="left:36%;top:164px;width:5%">아하시야</div>
+  <div class="bar northBar" data-title="여호람" data-info="연대: BC 852~841" style="left:38%;top:186px;width:7%">여호람</div>
+  <div class="bar northBar" data-title="예후" data-info="연대: BC 841~814&#10;아합 왕조 심판과 예후 왕조 시작" style="left:44%;top:208px;width:10%">예후</div>
+  <div class="bar northBar" data-title="여호아하스" data-info="연대: BC 814~798" style="left:53%;top:230px;width:7%">여호아하스</div>
+  <div class="bar northBar" data-title="요아스" data-info="연대: BC 798~782" style="left:59%;top:252px;width:7%">요아스</div>
+  <div class="bar northBar" data-title="여로보암 2세~호세아" data-info="연대: BC 793~722&#10;북이스라엘 말기 왕들&#10;호세아는 북이스라엘 마지막 왕" style="left:64%;top:274px;width:26%">여로보암 2세 ~ 호세아</div>
 </div>
 
-<div class="kingFallMarker" style="left:68.5%" data-title="북이스라엘 멸망" data-info="BC 722년 앗수르에 의해 북이스라엘이 멸망합니다. 이후 북이스라엘 왕은 존재하지 않습니다.">BC 722 멸망</div>
-</div>
-
-<div class="left rowLabel labelSouth view southking">남유다<br>왕</div>
-<div class="plot view southking" style="height:58px">
+<div class="left rowLabel labelSouth view kings">남유다<br>왕</div>
+<div class="plot view kings" style="height:344px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="bar southBar short" data-title="르호보암" data-info="연대: BC 930~913&#10;관련성경: 왕상 12장, 대하 10장" style="left:4%;top:18px;width:4.9%;">르호보암</div>
-  <div class="bar southBar tiny k-short k-up" data-title="아비야" data-short="아비야" data-info="연대: BC 913~911" style="left:8.9%;top:18px;width:0.9%;">아비야</div>
-  <div class="bar southBar" data-title="아사" data-info="연대: BC 911~870" style="left:9.8%;top:18px;width:11.9%;">아사</div>
-  <div class="bar southBar short" data-title="여호사밧" data-info="연대: BC 870~848&#10;관련성경: 대하 17~20장" style="left:21.7%;top:18px;width:6.4%;">여호사밧</div>
-  <div class="bar southBar tiny k-short k-down" data-title="여호람" data-short="여호람" data-info="연대: BC 848~841" style="left:28.1%;top:18px;width:2%;">여호람</div>
-  <div class="bar southBar tiny k-short k-up" data-title="아하시야" data-short="아하시야" data-info="연대: BC 841" style="left:30.1%;top:18px;width:0.8%;">아하시야</div>
-  <div class="bar southBar tiny k-short k-down" data-title="아달랴" data-short="아달랴" data-info="연대: BC 841~835" style="left:30.9%;top:18px;width:1.7%;">아달랴</div>
-  <div class="bar southBar short k-short k-down" data-title="요아스" data-short="요아스" data-info="연대: BC 835~796" style="left:32.6%;top:18px;width:11.3%;">요아스</div>
-  <div class="bar southBar short" data-title="아마샤" data-info="연대: BC 796~767" style="left:43.9%;top:18px;width:8.4%;">아마샤</div>
-  <div class="bar southBar" data-title="웃시야" data-info="연대: BC 792~740&#10;이사야 소명 시기와 연결" style="left:52.3%;top:18px;width:15.1%;">웃시야</div>
-  <div class="bar southBar tiny k-short k-up" data-title="요담" data-short="요담" data-info="연대: BC 750~732" style="left:67.4%;top:18px;width:5.2%;">요담</div>
-  <div class="bar southBar short k-short k-down" data-title="아하스" data-short="아하스" data-info="연대: BC 735~716" style="left:72.6%;top:18px;width:5.5%;">아하스</div>
-  <div class="bar southBar short" data-title="히스기야" data-info="연대: BC 716~687&#10;관련성경: 왕하 18~20장, 사 36~39장" style="left:78.1%;top:18px;width:8.4%;">히스기야</div>
-  <div class="bar southBar" data-title="므낫세~시드기야" data-info="연대: BC 687~586&#10;남유다 말기 왕들&#10;시드기야 때 예루살렘 함락" style="left:86.5%;top:18px;width:10.5%;">므낫세~시드기야</div>
+  <div class="bar southBar" data-title="르호보암" data-info="연대: BC 930~913&#10;관련성경: 왕상 12장, 대하 10장" style="left:4%;top:10px;width:7%">르호보암</div>
+  <div class="bar southBar" data-title="아비야" data-info="연대: BC 913~911" style="left:10%;top:32px;width:4%">아비야</div>
+  <div class="bar southBar" data-title="아사" data-info="연대: BC 911~870" style="left:12%;top:54px;width:14%">아사</div>
+  <div class="bar southBar" data-title="여호사밧" data-info="연대: BC 870~848&#10;관련성경: 대하 17~20장" style="left:25%;top:76px;width:9%">여호사밧</div>
+  <div class="bar southBar" data-title="여호람" data-info="연대: BC 848~841" style="left:33%;top:98px;width:5%">여호람</div>
+  <div class="bar southBar" data-title="아하시야" data-info="연대: BC 841" style="left:37%;top:120px;width:4%">아하시야</div>
+  <div class="bar southBar" data-title="아달랴" data-info="연대: BC 841~835" style="left:38%;top:142px;width:5%">아달랴</div>
+  <div class="bar southBar" data-title="요아스" data-info="연대: BC 835~796" style="left:42%;top:164px;width:13%">요아스</div>
+  <div class="bar southBar" data-title="아마샤" data-info="연대: BC 796~767" style="left:54%;top:186px;width:11%">아마샤</div>
+  <div class="bar southBar" data-title="웃시야" data-info="연대: BC 792~740&#10;이사야 소명 시기와 연결" style="left:60%;top:208px;width:18%">웃시야</div>
+  <div class="bar southBar" data-title="요담" data-info="연대: BC 750~732" style="left:69%;top:230px;width:8%">요담</div>
+  <div class="bar southBar" data-title="아하스" data-info="연대: BC 735~716" style="left:73%;top:252px;width:8%">아하스</div>
+  <div class="bar southBar" data-title="히스기야" data-info="연대: BC 716~687&#10;관련성경: 왕하 18~20장, 사 36~39장" style="left:79%;top:274px;width:11%">히스기야</div>
+  <div class="bar southBar" data-title="므낫세~시드기야" data-info="연대: BC 687~586&#10;남유다 말기 왕들&#10;시드기야 때 예루살렘 함락" style="left:87%;top:296px;width:10%">므낫세~시드기야</div>
 </div>
 
 <div class="left rowLabel labelProphets view prophets">선지자</div>
@@ -420,13 +284,13 @@ html,body{
 <div class="plot view nations" style="height:190px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="bar nationBar repeat long" data-title="애굽 (이집트)" data-info="오늘날: 이집트&#10;분열왕국 전후 계속 영향력을 행사" style="left:1%;top:10px;width:96%"><span>애굽 (이집트)</span><span>애굽 (이집트)</span><span>애굽 (이집트)</span><span>애굽 (이집트)</span></div>
-  <div class="bar nationBar repeat" data-title="아람 (시리아)" data-info="오늘날: 시리아&#10;북이스라엘과 잦은 전쟁" style="left:18%;top:32px;width:45%"><span>아람 (시리아)</span><span>아람 (시리아)</span></div>
-  <div class="bar nationBar repeat medium" data-title="두로·시돈 (레바논)" data-info="오늘날: 레바논 해안&#10;이세벨, 바알 숭배 유입과 관련" style="left:24%;top:54px;width:28%"><span>두로·시돈 (레바논)</span><span>두로·시돈 (레바논)</span><span>두로·시돈 (레바논)</span></div>
-  <div class="bar nationBar repeat" data-title="모압 (요르단)" data-info="오늘날: 요르단&#10;이스라엘·유다와 갈등" style="left:32%;top:76px;width:52%"><span>모압 (요르단)</span><span>모압 (요르단)</span></div>
-  <div class="bar nationBar repeat" data-title="암몬 (요르단)" data-info="오늘날: 요르단 암만 지역" style="left:32%;top:98px;width:54%"><span>암몬 (요르단)</span><span>암몬 (요르단)</span></div>
-  <div class="bar nationBar repeat" data-title="에돔 (요르단 남부)" data-info="오늘날: 요르단 남부·아라바 지역" style="left:34%;top:120px;width:56%"><span>에돔 (요르단 남부)</span><span>에돔 (요르단 남부)</span></div>
-  <div class="bar nationBar repeat" data-title="앗수르 (이라크 북부)" data-info="오늘날: 이라크 북부&#10;북이스라엘 멸망, 히스기야 시대 위기와 관련" style="left:58%;top:142px;width:30%"><span>앗수르 (이라크 북부)</span><span>앗수르 (이라크 북부)</span></div>
+  <div class="bar nationBar" data-title="애굽 (이집트)" data-info="오늘날: 이집트&#10;분열왕국 전후 계속 영향력을 행사" style="left:1%;top:10px;width:96%">애굽 (이집트)</div>
+  <div class="bar nationBar" data-title="아람 (시리아)" data-info="오늘날: 시리아&#10;북이스라엘과 잦은 전쟁" style="left:18%;top:32px;width:45%">아람 (시리아)</div>
+  <div class="bar nationBar" data-title="두로·시돈 (레바논)" data-info="오늘날: 레바논 해안&#10;이세벨, 바알 숭배 유입과 관련" style="left:24%;top:54px;width:28%">두로·시돈 (레바논)</div>
+  <div class="bar nationBar" data-title="모압 (요르단)" data-info="오늘날: 요르단&#10;이스라엘·유다와 갈등" style="left:32%;top:76px;width:52%">모압 (요르단)</div>
+  <div class="bar nationBar" data-title="암몬 (요르단)" data-info="오늘날: 요르단 암만 지역" style="left:32%;top:98px;width:54%">암몬 (요르단)</div>
+  <div class="bar nationBar" data-title="에돔 (요르단 남부)" data-info="오늘날: 요르단 남부·아라바 지역" style="left:34%;top:120px;width:56%">에돔 (요르단 남부)</div>
+  <div class="bar nationBar" data-title="앗수르 (이라크 북부)" data-info="오늘날: 이라크 북부&#10;북이스라엘 멸망, 히스기야 시대 위기와 관련" style="left:58%;top:142px;width:30%">앗수르 (이라크 북부)</div>
   <div class="bar nationBar" data-title="바벨론 (이라크)" data-info="오늘날: 이라크&#10;남유다 멸망과 포로기의 직접 배경" style="left:86%;top:164px;width:12%">바벨론 (이라크)</div>
 </div>
 
@@ -484,54 +348,16 @@ html,body{
 const tabs=[...document.querySelectorAll('.tab')];
 const views=[...document.querySelectorAll('.view')];
 
-const filterTabs = tabs.filter(t => t.dataset.view !== 'all');
-const allKeys = ['northking','southking','prophets','nations','events'];
-let activeFilters = new Set(allKeys);
-
-function applyFilters(){
-  const showAll = activeFilters.size === allKeys.length;
-
-  tabs.forEach(t => {
-    const v = t.dataset.view;
-    if(v === 'all'){
-      t.classList.toggle('active', showAll);
-      t.classList.toggle('all-on', showAll);
-    }else{
-      t.classList.toggle('active', activeFilters.has(v));
-    }
-  });
-
-  views.forEach(row => {
-    const visible = [...activeFilters].some(key => row.classList.contains(key));
-    row.classList.toggle('hidden', !visible);
-  });
-}
-
 tabs.forEach(tab=>{
   tab.onclick=()=>{
-    const view = tab.dataset.view;
-
-    if(view === 'all'){
-      if(activeFilters.size === allKeys.length){
-        activeFilters.clear();      // 전체 해제
-      }else{
-        activeFilters = new Set(allKeys);  // 전체 선택
-      }
-      applyFilters();
-      return;
-    }
-
-    if(activeFilters.has(view)){
-      activeFilters.delete(view);
-    }else{
-      activeFilters.add(view);
-    }
-
-    applyFilters();
+    tabs.forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    const view=tab.dataset.view;
+    views.forEach(v=>{
+      v.classList.toggle('hidden', !(view==='all'||v.classList.contains(view)));
+    });
   };
 });
-
-applyFilters();
 
 const modal=document.getElementById('modal');
 const mt=document.getElementById('modalTitle');
