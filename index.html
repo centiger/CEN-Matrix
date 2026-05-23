@@ -5,201 +5,275 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>CEN-Matrix</title>
 <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#132235">
 <style>
 *{box-sizing:border-box}
 html,body{
-margin:0;padding:0;height:100%;overflow:hidden;
-font-family:system-ui,sans-serif;background:#f5ecdf;color:#222;
+margin:0;padding:0;width:100%;height:100%;
+overflow:hidden;
+font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:#f6efe4;color:#17130f;
 }
-.top{
-height:72px;background:#172437;color:#fff;padding:7px 9px;
+.header{
+height:72px;
+background:linear-gradient(135deg,#102033,#18324d);
+color:#fff;
+padding:7px 10px 5px;
 }
-.top1{display:flex;align-items:center;gap:8px;height:38px}
-.menu{
-width:32px;height:32px;border-radius:9px;
-border:1px solid rgba(255,255,255,.3);
-background:rgba(255,255,255,.08);color:#fff;font-size:18px;
+.headerTop{
+height:38px;
+display:flex;
+align-items:center;
+gap:10px;
 }
-.logo{flex:1}
-.logo b{display:block;font-size:18px}
-.logo span{display:block;font-size:10px;color:#e6d8c6;margin-top:2px}
-.badge{
-padding:5px 8px;border-radius:999px;
+.menuBtn{
+width:36px;height:36px;
+border-radius:12px;
 border:1px solid rgba(255,255,255,.35);
-font-size:11px;color:#ffe9b7;
+background:rgba(255,255,255,.08);
+color:#fff;
+font-size:20px;
 }
-.top2{
-height:20px;font-size:12px;
-display:flex;justify-content:space-between;align-items:center;
+.brand{flex:1}
+.brand b{
+display:block;
+font-size:20px;
+font-weight:900;
+line-height:1;
+}
+.brand span{
+display:block;
+font-size:10px;
+color:#e8d7c4;
+margin-top:4px;
+}
+.period{
+border:1px solid rgba(255,255,255,.4);
+border-radius:999px;
+padding:6px 10px;
+font-size:11px;
+color:#ffe9b7;
+}
+.headerBottom{
+height:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:12px;
+font-weight:900;
+}
+.headerBottom span:last-child{
+font-weight:600;
+color:#eadbc9;
 }
 .tabs{
-height:38px;padding:4px 6px;
-display:flex;gap:5px;overflow-x:auto;
-background:#f7efe2;border-bottom:1px solid #d8c3a2;
+height:40px;
+display:flex;
+gap:7px;
+align-items:center;
+overflow-x:auto;
+padding:5px 10px;
+background:#f7efe1;
+border-bottom:1px solid #d8c3a2;
 }
 .tab{
 flex:0 0 auto;
-padding:5px 10px;border-radius:999px;
-border:1px solid #b89f7c;background:#fffaf1;
-font-size:12px;font-weight:800;
+padding:6px 13px;
+border-radius:999px;
+border:1px solid #c4ab87;
+background:#fffaf2;
+font-size:12px;
+font-weight:900;
+color:#1e150f;
 }
 .tab.active{
-background:#6e4723;color:#fff;border-color:#6e4723;
+background:#70451f;
+color:#fff;
+border-color:#70451f;
 }
 .main{
-height:calc(100% - 72px - 38px - 42px);
+height:calc(100% - 72px - 40px - 46px);
 overflow:auto;
 background:#fffdf8;
 }
 .matrix{
 min-width:980px;
 display:grid;
-grid-template-columns:82px 1fr;
+grid-template-columns:110px 1fr;
 }
 .left{
-position:sticky;left:0;z-index:20;
-border-right:1px solid #d9c6ab;
-background:#fff7eb;
-display:flex;align-items:center;justify-content:center;
-font-weight:900;font-size:14px;
+position:sticky;
+left:0;
+z-index:20;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-weight:900;
+border-right:2px solid #d8c3a2;
+border-bottom:1px solid #d8c3a2;
 }
 .axisLeft{
-height:34px;font-size:13px;
-position:sticky;top:0;z-index:40;
+height:44px;
+font-size:16px;
+background:#fff4df;
+position:sticky;
+top:0;
+z-index:40;
 }
 .axis{
-height:34px;position:sticky;top:0;
-background:#fffdf8;z-index:30;
-border-bottom:1px solid #d9c6ab;
+position:sticky;
+top:0;
+z-index:30;
+height:44px;
+background:#fffdf8;
+border-bottom:1px solid #d8c3a2;
 }
 .tick{
-position:absolute;top:6px;transform:translateX(-50%);
-font-size:13px;font-weight:900;
+position:absolute;
+top:10px;
+transform:translateX(-50%);
+font-size:16px;
+font-weight:900;
+color:#111;
 }
-.tick.red{color:#b31212}
+.tick.red{color:#b51313}
 .tick:after{
-content:"";position:absolute;left:50%;top:18px;
-width:1px;height:7px;background:#b6a490;
+content:"";
+position:absolute;
+left:50%;
+top:22px;
+width:1px;
+height:8px;
+background:#bca88f;
 }
 .grid{
-position:absolute;top:0;bottom:0;border-left:1px dashed #e4d6c1;
+position:absolute;
+top:0;
+bottom:0;
+border-left:1px dashed #e0ceb5;
 }
 .rowLabel{
-padding:4px;
-line-height:1.15;
+font-size:18px;
+line-height:1.18;
+padding:6px;
+}
+.labelNorth{
+background:#dfeeff;
+border-right-color:#9fc2ea;
+}
+.labelSouth{
+background:#e4f2dc;
+border-right-color:#9cc887;
+}
+.labelProphets{
+background:#eee4ff;
+border-right-color:#b89ce7;
+}
+.labelNations{
+background:#ffe9c8;
+border-right-color:#efa74c;
+}
+.labelEvents{
+background:#ffe8e5;
+border-right-color:#e2a09a;
 }
 .plot{
 position:relative;
-padding:4px 0 2px;
-border-bottom:1px solid #eadbc7;
 overflow:visible;
+border-bottom:1px solid #d8c3a2;
+background:#fffdf8;
 }
 .bar{
 position:absolute;
-height:18px;line-height:18px;
+height:20px;
+line-height:20px;
 border-radius:0;
-padding:0 5px;
-font-size:11px;font-weight:800;
-white-space:nowrap;
-border:1px solid rgba(0,0,0,.15);
+padding:0 6px;
+font-size:11px;
+font-weight:900;
 color:#111;
+border:1px solid rgba(0,0,0,.12);
+white-space:nowrap;
 overflow:hidden;
 }
-.north{background:#d9e9ff}
-.south{background:#dff1d7}
-.prophet{background:#eadfff}
-.nation{background:#ffe6c7}
+.northBar{
+background:#dfeeff;
+border-color:#9fc2ea;
+}
+.southBar{
+background:#e4f2dc;
+border-color:#9cc887;
+}
+.prophetBar{
+background:#eee4ff;
+border-color:#b89ce7;
+}
+.nationBar{
+background:#ffe9c8;
+border-color:#efa74c;
+}
 .dot{
 position:absolute;
-width:10px;height:10px;border-radius:50%;
-background:#d12d2d;
+width:11px;
+height:11px;
+border-radius:50%;
+background:#d31919;
 transform:translateX(-50%);
 }
-.event{
+.eventText{
 position:absolute;
-font-size:10px;font-weight:800;
-width:70px;transform:translateX(-50%);
-text-align:center;line-height:1.1;
+width:76px;
+transform:translateX(-50%);
+text-align:center;
+font-size:11px;
+font-weight:900;
+line-height:1.15;
 }
 .actions{
-height:42px;
-display:flex;gap:5px;overflow-x:auto;
-padding:5px 6px;background:#f7efe2;
+height:46px;
+display:flex;
+gap:7px;
+overflow-x:auto;
+align-items:center;
+padding:5px 10px;
+background:#f7efe1;
 border-top:1px solid #d8c3a2;
 }
 .action{
 flex:0 0 auto;
-padding:6px 10px;border-radius:10px;
-border:1px solid #b89f7c;background:#fffaf1;
-font-size:11px;font-weight:800;
+padding:7px 12px;
+border-radius:12px;
+border:1px solid #c4ab87;
+background:#fffaf2;
+font-size:12px;
+font-weight:900;
 }
-.hidden{display:none}
-
-/* v20: v18 layout + pastel color only */
-.axisLeft{
-  background:#fff4df !important;
-}
-.left.rowLabel.kings,
-.rowLabel.kings{
-  background:#eaf4ff !important;
-}
-.left.rowLabel.prophets,
-.rowLabel.prophets{
-  background:#f1eaff !important;
-}
-.left.rowLabel.nations,
-.rowLabel.nations{
-  background:#fff1d9 !important;
-}
-.left.rowLabel.events,
-.rowLabel.events{
-  background:#ffe9e5 !important;
-}
-.north{
-  background:#d9eaff !important;
-  border-color:#9dc3eb !important;
-  color:#111 !important;
-}
-.south{
-  background:#dff2d7 !important;
-  border-color:#9ccc88 !important;
-  color:#111 !important;
-}
-.prophet{
-  background:#eadfff !important;
-  border-color:#b89be8 !important;
-  color:#111 !important;
-}
-.nation{
-  background:#ffe6c7 !important;
-  border-color:#efa64b !important;
-  color:#111 !important;
-}
-
 </style>
 </head>
 <body>
-<header class="top">
-<div class="top1">
-<button class="menu">☰</button>
-<div class="logo">
+
+<header class="header">
+<div class="headerTop">
+<button class="menuBtn">☰</button>
+<div class="brand">
 <b>CEN‑Matrix</b>
 <span>성경 시대별 총람</span>
 </div>
-<div class="badge">BC 930 ~ BC 586</div>
+<div class="period">BC 930 ~ BC 586</div>
 </div>
-<div class="top2">
-<div>분열왕국시대</div>
-<div>왕 · 선지자 · 주변국 · 사건</div>
+<div class="headerBottom">
+<span>분열왕국시대</span>
+<span>왕 · 선지자 · 주변국 · 사건</span>
 </div>
 </header>
 
 <nav class="tabs">
-<button class="tab active" data-view="all">전체</button>
-<button class="tab" data-view="kings">왕</button>
-<button class="tab" data-view="prophets">선지자</button>
-<button class="tab" data-view="nations">주변국</button>
-<button class="tab" data-view="events">사건</button>
+<button class="tab active">전체</button>
+<button class="tab">왕</button>
+<button class="tab">선지자</button>
+<button class="tab">주변국</button>
+<button class="tab">사건</button>
 </nav>
 
 <main class="main">
@@ -210,93 +284,69 @@ font-size:11px;font-weight:800;
 <div class="tick" style="left:7%">BC 930</div>
 <div class="tick" style="left:25%">BC 850</div>
 <div class="tick red" style="left:62%">BC 722</div>
-<div class="tick" style="left:69%">BC 701</div>
-<div class="tick red" style="left:94%">BC 586</div>
+<div class="tick" style="left:83%">BC 622</div>
 </div>
 
-<div class="left rowLabel view kings">북이스라엘<br>왕</div>
-<div class="plot view kings" style="height:118px">
+<div class="left rowLabel labelNorth">북이스라엘<br>왕</div>
+<div class="plot" style="height:112px">
 <div class="grid" style="left:7%"></div>
 <div class="grid" style="left:25%"></div>
 <div class="grid" style="left:62%"></div>
-<div class="grid" style="left:69%"></div>
-<div class="grid" style="left:94%"></div>
+<div class="grid" style="left:83%"></div>
 
-<div class="bar north" style="left:2%;top:6px;width:18%">여로보암 1세</div>
-<div class="bar north" style="left:24%;top:28px;width:17%">바아사</div>
-<div class="bar north" style="left:40%;top:50px;width:16%">오므리</div>
-<div class="bar north" style="left:56%;top:72px;width:15%">여호아하스</div>
-<div class="bar north" style="left:72%;top:94px;width:20%">호세아</div>
+<div class="bar northBar" style="left:4%;top:16px;width:34%">여로보암 1세</div>
+<div class="bar northBar" style="left:50%;top:58px;width:34%">바아사</div>
 </div>
 
-<div class="left rowLabel view kings">남유다<br>왕</div>
-<div class="plot view kings" style="height:118px">
+<div class="left rowLabel labelSouth">남유다<br>왕</div>
+<div class="plot" style="height:112px">
 <div class="grid" style="left:7%"></div>
 <div class="grid" style="left:25%"></div>
 <div class="grid" style="left:62%"></div>
-<div class="grid" style="left:69%"></div>
-<div class="grid" style="left:94%"></div>
+<div class="grid" style="left:83%"></div>
 
-<div class="bar south" style="left:2%;top:6px;width:16%">르호보암</div>
-<div class="bar south" style="left:22%;top:28px;width:18%">아사</div>
-<div class="bar south" style="left:46%;top:50px;width:18%">여호사밧</div>
-<div class="bar south" style="left:66%;top:72px;width:14%">여호람</div>
-<div class="bar south" style="left:80%;top:94px;width:14%">시드기야</div>
+<div class="bar southBar" style="left:4%;top:16px;width:30%">르호보암</div>
+<div class="bar southBar" style="left:46%;top:58px;width:38%">아사</div>
 </div>
 
-<div class="left rowLabel view prophets">선지자</div>
-<div class="plot view prophets" style="height:140px">
+<div class="left rowLabel labelProphets">선지자</div>
+<div class="plot" style="height:132px">
 <div class="grid" style="left:7%"></div>
 <div class="grid" style="left:25%"></div>
 <div class="grid" style="left:62%"></div>
-<div class="grid" style="left:69%"></div>
-<div class="grid" style="left:94%"></div>
+<div class="grid" style="left:83%"></div>
 
-<div class="bar prophet" style="left:2%;top:6px;width:22%">엘리야</div>
-<div class="bar prophet" style="left:5%;top:28px;width:28%">엘리사</div>
-<div class="bar prophet" style="left:38%;top:50px;width:42%">이사야</div>
-<div class="bar prophet" style="left:40%;top:72px;width:22%">미가</div>
-<div class="bar prophet" style="left:60%;top:94px;width:12%">나훔</div>
-<div class="bar prophet" style="left:67%;top:116px;width:25%">예레미야</div>
+<div class="bar prophetBar" style="left:4%;top:16px;width:42%">엘리야</div>
+<div class="bar prophetBar" style="left:10%;top:58px;width:58%">엘리사</div>
 </div>
 
-<div class="left rowLabel view nations">주변국</div>
-<div class="plot view nations" style="height:118px">
+<div class="left rowLabel labelNations">주변국</div>
+<div class="plot" style="height:116px">
 <div class="grid" style="left:7%"></div>
 <div class="grid" style="left:25%"></div>
 <div class="grid" style="left:62%"></div>
-<div class="grid" style="left:69%"></div>
-<div class="grid" style="left:94%"></div>
+<div class="grid" style="left:83%"></div>
 
-<div class="bar nation" style="left:2%;top:6px;width:90%">앗수르 (이라크 북부)</div>
-<div class="bar nation" style="left:2%;top:28px;width:40%">아람 (시리아)</div>
-<div class="bar nation" style="left:2%;top:50px;width:36%">블레셋 (가자)</div>
-<div class="bar nation" style="left:40%;top:72px;width:42%">모압 (요르단)</div>
-<div class="bar nation" style="left:64%;top:94px;width:26%">암몬 (요르단)</div>
+<div class="bar nationBar" style="left:4%;top:14px;width:90%">앗수르 (이라크 북부)</div>
+<div class="bar nationBar" style="left:4%;top:48px;width:90%">아람 (시리아)</div>
+<div class="bar nationBar" style="left:4%;top:82px;width:90%">블레셋 (가자)</div>
 </div>
 
-<div class="left rowLabel view events">핵심<br>사건</div>
-<div class="plot view events" style="height:92px">
+<div class="left rowLabel labelEvents">핵심 사건</div>
+<div class="plot" style="height:118px">
 <div class="grid" style="left:7%"></div>
 <div class="grid" style="left:25%"></div>
 <div class="grid" style="left:62%"></div>
-<div class="grid" style="left:69%"></div>
-<div class="grid" style="left:94%"></div>
+<div class="grid" style="left:83%"></div>
 
-<div class="dot" style="left:7%;top:10px"></div>
-<div class="event" style="left:7%;top:24px">BC930<br>왕국분열</div>
+<div class="dot" style="left:7%;top:28px"></div>
+<div class="eventText" style="left:7%;top:46px">BC930<br>왕국분열</div>
 
-<div class="dot" style="left:25%;top:10px"></div>
-<div class="event" style="left:25%;top:24px">BC850<br>갈멜산</div>
+<div class="dot" style="left:25%;top:28px"></div>
+<div class="eventText" style="left:25%;top:46px">BC850<br>갈멜산</div>
 
-<div class="dot" style="left:62%;top:10px"></div>
-<div class="event" style="left:62%;top:24px">BC722<br>북이스라엘 멸망</div>
-
-<div class="dot" style="left:83%;top:10px"></div>
-<div class="event" style="left:83%;top:24px">BC622<br>요시야 개혁</div>
-
-<div class="dot" style="left:94%;top:10px"></div>
-<div class="event" style="left:94%;top:24px">BC586<br>예루살렘 함락</div>
+<div class="dot" style="left:62%;top:28px"></div>
+<div class="eventText" style="left:62%;top:46px">BC722<br>북이스라엘<br>멸망</div>
 </div>
 
 </div>
@@ -309,29 +359,5 @@ font-size:11px;font-weight:800;
 <button class="action">핵심사건</button>
 </footer>
 
-<script>
-const tabs=document.querySelectorAll('.tab');
-const views=document.querySelectorAll('.view');
-
-tabs.forEach(tab=>{
- tab.onclick=()=>{
-   tabs.forEach(t=>t.classList.remove('active'));
-   tab.classList.add('active');
-   const v=tab.dataset.view;
-
-   views.forEach(view=>{
-      if(v==='all'){
-        view.classList.remove('hidden');
-      }else{
-        if(view.classList.contains(v)){
-          view.classList.remove('hidden');
-        }else{
-          view.classList.add('hidden');
-        }
-      }
-   });
- };
-});
-</script>
 </body>
 </html>
