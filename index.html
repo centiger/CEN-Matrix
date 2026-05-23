@@ -293,6 +293,26 @@ html,body{
   z-index:5;
 }
 
+
+/* v39: restore fixed vertical left menu layout */
+.left.rowLabel{
+  width:54px !important;
+  min-width:54px !important;
+  max-width:54px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  line-height:1.15 !important;
+  white-space:normal !important;
+  word-break:keep-all !important;
+  overflow:hidden !important;
+  flex-shrink:0 !important;
+}
+.left.rowLabel br{
+  display:block !important;
+}
+
 </style>
 </head>
 <body>
@@ -314,7 +334,7 @@ html,body{
 
 <nav class="tabs">
   <button class="tab active" data-view="all">전체</button>
-  <button class="tab" data-view="northking">북이스라엘왕</button>
+  <button class="tab" data-view="northking">북이스라엘<br>왕</button>
   <button class="tab" data-view="southking">남유다<br>왕</button>
   <button class="tab" data-view="prophets">선지자</button>
   <button class="tab" data-view="nations">주변국</button>
@@ -449,7 +469,7 @@ html,body{
   <button class="action">성경연대기</button>
   <button class="action">연결탐험</button>
   <button class="action">한눈에 성경</button>
-  <button class="action">핵심사건</button>
+  <button class="action">핵심<br>사건</button>
 </footer>
 
 <div class="modal" id="modal">
