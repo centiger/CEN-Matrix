@@ -1,4 +1,4 @@
-const CACHE_NAME='cen-matrix-v33-single-line-kings';
+const CACHE_NAME='cen-matrix-v34-king-timeline-labels';
 self.addEventListener('install',e=>{self.skipWaiting();});
 self.addEventListener('activate',e=>{self.clients.claim();});
 self.addEventListener('fetch',e=>{});
