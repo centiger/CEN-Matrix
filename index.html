@@ -328,12 +328,12 @@ html,body{
 const tabs=[...document.querySelectorAll('.tab')];
 const views=[...document.querySelectorAll('.view')];
 
-const allTab = tabs.find(t => t.dataset.view === 'all');
 const filterTabs = tabs.filter(t => t.dataset.view !== 'all');
-let activeFilters = new Set(['kings','prophets','nations','events']);
+const allKeys = ['kings','prophets','nations','events'];
+let activeFilters = new Set(allKeys);
 
 function applyFilters(){
-  const showAll = activeFilters.size === filterTabs.length;
+  const showAll = activeFilters.size === allKeys.length;
 
   tabs.forEach(t => {
     const v = t.dataset.view;
@@ -356,7 +356,11 @@ tabs.forEach(tab=>{
     const view = tab.dataset.view;
 
     if(view === 'all'){
-      activeFilters = new Set(['kings','prophets','nations','events']);
+      if(activeFilters.size === allKeys.length){
+        activeFilters.clear();      // 전체 해제
+      }else{
+        activeFilters = new Set(allKeys);  // 전체 선택
+      }
       applyFilters();
       return;
     }
@@ -365,10 +369,6 @@ tabs.forEach(tab=>{
       activeFilters.delete(view);
     }else{
       activeFilters.add(view);
-    }
-
-    if(activeFilters.size === 0){
-      activeFilters = new Set(['kings','prophets','nations','events']);
     }
 
     applyFilters();
