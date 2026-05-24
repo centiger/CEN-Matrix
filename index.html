@@ -71,7 +71,8 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;font-family:
 }
 
 
-/* final fixed labels for Joash/Amaziah */
+
+/* final fixed labels for south Joash/Amaziah only */
 .fixedKingLabel{
   position:absolute;
   transform:translateX(-50%);
@@ -86,7 +87,6 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;font-family:
   pointer-events:auto;
   box-shadow:0 1px 5px rgba(0,0,0,.25);
 }
-.fixedKingLabel.north{background:#332214;}
 .fixedKingLabel.south{background:#253a1c;}
 .fixedKingLabel.top::after,
 .fixedKingLabel.bottom::after{
@@ -315,37 +315,42 @@ if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').cat
 </script>
 
 
+
 <script id="joash-amaziah-final-label-script">
 (function(){
-  const START=930, END=586, LEFT=4, RIGHT=94;
-  function pct(y){ return LEFT + ((START-y)/(START-END))*(RIGHT-LEFT); }
-  function addLabel(plotId, text, yearStart, yearEnd, topPx, type, pos, info){
+  function addLabel(plotId, text, leftPct, topPx, pos, info){
     const plot = document.getElementById(plotId);
     if(!plot) return;
-    const old = plot.querySelector('.fixedKingLabel[data-title="'+text+'"][data-fixed="1"]');
-    if(old) old.remove();
-    const x = pct((yearStart + yearEnd) / 2);
+
+    plot.querySelectorAll('.fixedKingLabel[data-fixed="1"][data-title="'+text+'"]').forEach(el => el.remove());
+
     const label = document.createElement('div');
-    label.className = 'fixedKingLabel ' + type + ' ' + pos;
+    label.className = 'fixedKingLabel south ' + pos;
     label.dataset.title = text;
     label.dataset.info = info || '';
     label.dataset.fixed = '1';
-    label.style.left = x + '%';
+    label.style.left = leftPct + '%';
     label.style.top = topPx + 'px';
     label.textContent = text;
     plot.appendChild(label);
   }
 
   function run(){
-    addLabel('northPlot', '요아스', 798, 782, 51, 'north', 'bottom', '연대: BC 798~782');
-    addLabel('southPlot', '요아스', 835, 796, 7, 'south', 'top', '연대: BC 835~796');
-    addLabel('southPlot', '아마샤', 796, 767, 51, 'south', 'bottom', '연대: BC 796~767');
+    // 북이스라엘 요아스 라벨은 제거: 막대 안 텍스트가 이미 보임
+    const northPlot = document.getElementById('northPlot');
+    if(northPlot){
+      northPlot.querySelectorAll('.fixedKingLabel[data-title="요아스"], .kingNameLabel[data-title="요아스"]').forEach(el => el.remove());
+    }
+
+    // 남유다 요아스/아마샤: 실제 빈 막대를 가리키도록 이전보다 왼쪽으로 보정
+    addLabel('southPlot', '요아스', 46.8, 7, 'top', '연대: BC 835~796');
+    addLabel('southPlot', '아마샤', 57.8, 51, 'bottom', '연대: BC 796~767');
   }
 
   if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', function(){ setTimeout(run, 200); });
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(run, 250); });
   }else{
-    setTimeout(run, 200);
+    setTimeout(run, 250);
   }
   window.addEventListener('resize', function(){ setTimeout(run, 100); });
 })();
