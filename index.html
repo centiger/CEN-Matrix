@@ -71,100 +71,35 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;font-family:
 }
 
 
-
-
-
-/* safe king pin labels */
-.bar.pin-top,
-.bar.pin-bottom{
-  overflow:visible !important;
-  color:transparent !important;
-}
-
-.bar.pin-top::after,
-.bar.pin-bottom::after{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  padding:1px 5px;
-  border-radius:4px;
-  font-size:9px;
-  font-weight:900;
-  white-space:nowrap;
-  color:#fff;
-  z-index:50;
-  box-shadow:0 1px 4px rgba(0,0,0,.22);
-}
-
-.bar.pin-top::before,
-.bar.pin-bottom::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  width:1px;
-  height:7px;
-  background:#70451f;
-  z-index:49;
-}
-
-.bar.pin-top::after{
-  content:attr(data-display-name);
-  bottom:24px;
-}
-
-.bar.pin-top::before{
-  bottom:18px;
-}
-
-.bar.pin-bottom::after{
-  content:attr(data-display-name);
-  top:24px;
-}
-
-.bar.pin-bottom::before{
-  top:18px;
-}
-
-.northBar.pin-top::after,
-.northBar.pin-bottom::after{
-  background:#332214;
-}
-
-.southBar.pin-top::after,
-.southBar.pin-bottom::after{
-  background:#253a1c;
-}
-
-
-/* direct visible labels for missing king names */
-.kingNameLabel{
+/* final fixed labels for Joash/Amaziah */
+.fixedKingLabel{
   position:absolute;
   transform:translateX(-50%);
+  padding:2px 6px;
+  border-radius:5px;
   font-size:9.2px;
   font-weight:900;
   line-height:1;
-  padding:2px 5px;
-  border-radius:4px;
   color:#fff;
   white-space:nowrap;
-  z-index:80;
+  z-index:999;
   pointer-events:auto;
-  box-shadow:0 1px 4px rgba(0,0,0,.22);
+  box-shadow:0 1px 5px rgba(0,0,0,.25);
 }
-.kingNameLabel::after{
+.fixedKingLabel.north{background:#332214;}
+.fixedKingLabel.south{background:#253a1c;}
+.fixedKingLabel.top::after,
+.fixedKingLabel.bottom::after{
   content:"";
   position:absolute;
   left:50%;
   transform:translateX(-50%);
   width:1px;
-  height:7px;
+  height:8px;
   background:#70451f;
 }
-.kingNameLabel.top::after{bottom:-7px;}
-.kingNameLabel.bottom::after{top:-7px;}
-.kingNameLabel.south{background:#253a1c;}
-.kingNameLabel.north{background:#332214;}
+.fixedKingLabel.top::after{bottom:-8px;}
+.fixedKingLabel.bottom::after{top:-8px;}
 
 </style>
 </head>
@@ -376,6 +311,43 @@ if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').cat
     e.stopPropagation();
     window.open(btn.dataset.link, '_self');
   }, true);
+})();
+</script>
+
+
+<script id="joash-amaziah-final-label-script">
+(function(){
+  const START=930, END=586, LEFT=4, RIGHT=94;
+  function pct(y){ return LEFT + ((START-y)/(START-END))*(RIGHT-LEFT); }
+  function addLabel(plotId, text, yearStart, yearEnd, topPx, type, pos, info){
+    const plot = document.getElementById(plotId);
+    if(!plot) return;
+    const old = plot.querySelector('.fixedKingLabel[data-title="'+text+'"][data-fixed="1"]');
+    if(old) old.remove();
+    const x = pct((yearStart + yearEnd) / 2);
+    const label = document.createElement('div');
+    label.className = 'fixedKingLabel ' + type + ' ' + pos;
+    label.dataset.title = text;
+    label.dataset.info = info || '';
+    label.dataset.fixed = '1';
+    label.style.left = x + '%';
+    label.style.top = topPx + 'px';
+    label.textContent = text;
+    plot.appendChild(label);
+  }
+
+  function run(){
+    addLabel('northPlot', '요아스', 798, 782, 51, 'north', 'bottom', '연대: BC 798~782');
+    addLabel('southPlot', '요아스', 835, 796, 7, 'south', 'top', '연대: BC 835~796');
+    addLabel('southPlot', '아마샤', 796, 767, 51, 'south', 'bottom', '연대: BC 796~767');
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){ setTimeout(run, 200); });
+  }else{
+    setTimeout(run, 200);
+  }
+  window.addEventListener('resize', function(){ setTimeout(run, 100); });
 })();
 </script>
 
