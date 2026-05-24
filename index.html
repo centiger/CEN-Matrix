@@ -78,9 +78,9 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;font-family:
 </div>
 </main>
 <footer class="actions">
-  <button class="action" data-link="https://centiger.github.io/cen-bible-chrololgy/#eras">성경연대기</button>
+  <button class="action" data-link="https://centiger.github.io/cen-bible-chrololgy/?view=timeline">성경연대기</button>
   <button class="action" data-link="https://centiger.github.io/cen-bible-chrololgy/#hub">연결탐험</button>
-  <button class="action" data-link="https://centiger.github.io/CEN-Bible2.0/#overview">한눈에 성경</button>
+  <button class="action" data-link="https://centiger.github.io/CEN-Bible2.0/#overview66">한눈에 성경</button>
   <button class="action" data-link="https://centiger.github.io/CEN-Bible2.0/#core-events">핵심 사건</button>
 </footer>
 <div class="modal" id="modal"><div class="card"><div class="cardTitle" id="modalTitle"></div><div class="cardBody" id="modalBody"></div><button class="close" id="closeModal">닫기</button></div></div>
@@ -253,7 +253,7 @@ setTimeout(updateStickyLabels,100);
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{})}
 </script>
 
-<script id="cen-matrix-bottom-link-script">
+<script id="cen-matrix-precise-bottom-link-script">
 (function(){
   document.addEventListener('click', function(e){
     const btn = e.target.closest('.action[data-link]');
