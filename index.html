@@ -71,67 +71,69 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;font-family:
 }
 
 
-/* king label visible fix */
+
+
+
+/* safe king pin labels */
 .bar.pin-top,
-.bar.pin-bottom,
-.bar.pin{
+.bar.pin-bottom{
   overflow:visible !important;
-  text-indent:-9999px !important;
+  color:transparent !important;
 }
+
 .bar.pin-top::after,
-.bar.pin-bottom::after,
-.bar.pin::after{
-  content:attr(data-display-name) !important;
-  position:absolute !important;
-  left:50% !important;
-  transform:translateX(-50%) !important;
-  color:#fff !important;
-  font-size:9px !important;
-  font-weight:900 !important;
-  padding:1px 5px !important;
-  border-radius:4px !important;
-  text-indent:0 !important;
-  white-space:nowrap !important;
-  box-shadow:0 2px 4px rgba(0,0,0,.18) !important;
-  z-index:30 !important;
+.bar.pin-bottom::after{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  padding:1px 5px;
+  border-radius:4px;
+  font-size:9px;
+  font-weight:900;
+  white-space:nowrap;
+  color:#fff;
+  z-index:50;
+  box-shadow:0 1px 4px rgba(0,0,0,.22);
 }
-.bar.pin-top::after,
-.bar.pin.up::after{
-  bottom:24px !important;
-}
-.bar.pin-bottom::after,
-.bar.pin.down::after{
-  top:24px !important;
-}
+
 .bar.pin-top::before,
-.bar.pin-bottom::before,
-.bar.pin::before{
-  content:"" !important;
-  position:absolute !important;
-  left:50% !important;
-  transform:translateX(-50%) !important;
-  width:1px !important;
-  height:7px !important;
-  background:#70451f !important;
-  z-index:29 !important;
+.bar.pin-bottom::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:1px;
+  height:7px;
+  background:#70451f;
+  z-index:49;
 }
-.bar.pin-top::before,
-.bar.pin.up::before{
-  bottom:18px !important;
+
+.bar.pin-top::after{
+  content:attr(data-display-name);
+  bottom:24px;
 }
-.bar.pin-bottom::before,
-.bar.pin.down::before{
-  top:18px !important;
+
+.bar.pin-top::before{
+  bottom:18px;
 }
+
+.bar.pin-bottom::after{
+  content:attr(data-display-name);
+  top:24px;
+}
+
+.bar.pin-bottom::before{
+  top:18px;
+}
+
 .northBar.pin-top::after,
-.northBar.pin-bottom::after,
-.northBar.pin::after{
-  background:#332214 !important;
+.northBar.pin-bottom::after{
+  background:#332214;
 }
+
 .southBar.pin-top::after,
-.southBar.pin-bottom::after,
-.southBar.pin.south-pin::after{
-  background:#253a1c !important;
+.southBar.pin-bottom::after{
+  background:#253a1c;
 }
 
 </style>
