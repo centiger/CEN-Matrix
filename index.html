@@ -70,6 +70,70 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;font-family:
   }
 }
 
+
+/* king label visible fix */
+.bar.pin-top,
+.bar.pin-bottom,
+.bar.pin{
+  overflow:visible !important;
+  text-indent:-9999px !important;
+}
+.bar.pin-top::after,
+.bar.pin-bottom::after,
+.bar.pin::after{
+  content:attr(data-display-name) !important;
+  position:absolute !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  color:#fff !important;
+  font-size:9px !important;
+  font-weight:900 !important;
+  padding:1px 5px !important;
+  border-radius:4px !important;
+  text-indent:0 !important;
+  white-space:nowrap !important;
+  box-shadow:0 2px 4px rgba(0,0,0,.18) !important;
+  z-index:30 !important;
+}
+.bar.pin-top::after,
+.bar.pin.up::after{
+  bottom:24px !important;
+}
+.bar.pin-bottom::after,
+.bar.pin.down::after{
+  top:24px !important;
+}
+.bar.pin-top::before,
+.bar.pin-bottom::before,
+.bar.pin::before{
+  content:"" !important;
+  position:absolute !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  width:1px !important;
+  height:7px !important;
+  background:#70451f !important;
+  z-index:29 !important;
+}
+.bar.pin-top::before,
+.bar.pin.up::before{
+  bottom:18px !important;
+}
+.bar.pin-bottom::before,
+.bar.pin.down::before{
+  top:18px !important;
+}
+.northBar.pin-top::after,
+.northBar.pin-bottom::after,
+.northBar.pin::after{
+  background:#332214 !important;
+}
+.southBar.pin-top::after,
+.southBar.pin-bottom::after,
+.southBar.pin.south-pin::after{
+  background:#253a1c !important;
+}
+
 </style>
 </head>
 <body>
