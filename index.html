@@ -251,6 +251,15 @@ html,body{
 /* north kingdom chronology fix: all north kings stop at BC 722 */
 .plot.view.northKings .bar{font-size:9.4px !important;padding:0 3px !important;}
 
+
+/* chronology correction: synced prophet activity dates with BC930~586 axis */
+.labelNorth{background:#cfe4fb !important;}
+.labelSouth{background:#d8edcf !important;}
+.labelProphets{background:#e3d6fb !important;}
+.labelNations{background:#f3ddb6 !important;}
+.labelEvents{background:#ffd8d0 !important;}
+.plot.view.prophets .bar{font-size:9.8px !important;}
+
 </style>
 </head>
 <body>
@@ -341,20 +350,19 @@ html,body{
 
 <div class="left rowLabel labelProphets view prophets">선지자</div>
 <div class="plot view prophets" style="height:278px">
-  <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
-
-  <div class="bar prophetBar" data-title="아히야" data-info="여로보암 1세와 관련된 선지자" style="left:3%;top:10px;width:11%">아히야</div>
-  <div class="bar prophetBar" data-title="스마야" data-info="왕국 분열 직후 유다에 경고한 선지자" style="left:4%;top:32px;width:9%">스마야</div>
-  <div class="bar prophetBar" data-title="엘리야" data-info="관련 왕: 아합" style="left:27%;top:54px;width:14%">엘리야</div>
-  <div class="bar prophetBar" data-title="엘리사" data-info="대략 BC 854~796경" style="left:35%;top:76px;width:22%">엘리사</div>
-  <div class="bar prophetBar" data-title="요나" data-info="여로보암 2세 시기와 관련" style="left:58%;top:98px;width:8%">요나</div>
-  <div class="bar prophetBar" data-title="아모스" data-info="북이스라엘의 사회 불의 책망" style="left:66%;top:120px;width:8%">아모스</div>
-  <div class="bar prophetBar" data-title="호세아" data-info="이스라엘의 회개 촉구" style="left:68%;top:142px;width:16%">호세아</div>
-  <div class="bar prophetBar" data-title="이사야" data-info="웃시야, 요담, 아하스, 히스기야 왕 시대" style="left:73%;top:164px;width:17%">이사야</div>
-  <div class="bar prophetBar" data-title="미가" data-info="대략 BC 735~700경" style="left:76%;top:186px;width:10%">미가</div>
-  <div class="bar prophetBar" data-title="나훔" data-info="앗수르 니느웨 심판 예언" style="left:84%;top:208px;width:8%">나훔</div>
-  <div class="bar prophetBar" data-title="스바냐" data-info="요시야 시대 활동" style="left:88%;top:230px;width:7%">스바냐</div>
-  <div class="bar prophetBar" data-title="예레미야" data-info="남유다 멸망기의 눈물의 선지자" style="left:89%;top:252px;width:9%">예레미야</div>
+  <div class="grid" style="left:4.00%"></div><div class="grid" style="left:17.08%"></div><div class="grid" style="left:30.16%"></div><div class="grid" style="left:43.24%"></div><div class="grid" style="left:58.42%"></div><div class="grid" style="left:63.91%"></div><div class="grid" style="left:84.58%"></div><div class="grid" style="left:94.00%"></div>
+  <div class="bar prophetBar" data-title="아히야" data-info="활동시기: 대략 BC 930~910&#10;여로보암 1세와 관련된 선지자. 왕상 11장, 14장" style="left:4.00%;top:10px;width:5.23%">아히야</div>
+  <div class="bar prophetBar" data-title="스마야" data-info="활동시기: 대략 BC 930~910&#10;왕국 분열 직후 유다에 경고한 선지자. 왕상 12장, 대하 11장" style="left:4.00%;top:32px;width:5.23%">스마야</div>
+  <div class="bar prophetBar" data-title="엘리야" data-info="활동시기: 대략 BC 875~850&#10;아합 시대 중심 활동. 갈멜산 대결과 연결. 왕상 17~19장" style="left:18.39%;top:54px;width:6.54%">엘리야</div>
+  <div class="bar prophetBar" data-title="엘리사" data-info="활동시기: 대략 BC 850~800&#10;엘리야 이후 북이스라엘 여러 왕 시기에 활동. 왕하 2~13장" style="left:24.93%;top:76px;width:13.08%">엘리사</div>
+  <div class="bar prophetBar" data-title="요나" data-info="활동시기: 대략 BC 790~760&#10;여로보암 2세 시기와 관련. 왕하 14:25, 요나" style="left:40.63%;top:98px;width:7.85%">요나</div>
+  <div class="bar prophetBar" data-title="아모스" data-info="활동시기: 대략 BC 760~750&#10;여로보암 2세 말기 북이스라엘 사회 불의 책망" style="left:48.48%;top:120px;width:2.62%">아모스</div>
+  <div class="bar prophetBar" data-title="호세아" data-info="활동시기: 대략 BC 755~722&#10;북이스라엘 멸망 전까지 언약 배반을 경고" style="left:49.78%;top:142px;width:8.63%">호세아</div>
+  <div class="bar prophetBar" data-title="이사야" data-info="활동시기: 대략 BC 740~681&#10;웃시야·요담·아하스·히스기야 시대. 앗수르 위기와 연결" style="left:53.71%;top:164px;width:15.44%">이사야</div>
+  <div class="bar prophetBar" data-title="미가" data-info="활동시기: 대략 BC 735~700&#10;요담·아하스·히스기야 시대. 남유다 사회 불의와 심판 경고" style="left:55.02%;top:186px;width:9.16%">미가</div>
+  <div class="bar prophetBar" data-title="나훔" data-info="활동시기: 대략 BC 663~612&#10;앗수르 니느웨 심판 예언. 니느웨 멸망 직전 흐름" style="left:73.85%;top:208px;width:13.34%">나훔</div>
+  <div class="bar prophetBar" data-title="스바냐" data-info="활동시기: 대략 BC 640~609&#10;요시야 시대 활동. 요시야 개혁 전후 배경" style="left:79.87%;top:230px;width:8.11%">스바냐</div>
+  <div class="bar prophetBar" data-title="예레미야" data-info="활동시기: 대략 BC 627~586&#10;요시야 13년부터 남유다 멸망기까지 활동한 선지자" style="left:83.27%;top:252px;width:10.73%">예레미야</div>
 </div>
 
 <div class="left rowLabel labelNations view nations">주변국</div>
@@ -375,24 +383,24 @@ html,body{
 <div class="plot view events" style="height:188px">
   <div class="grid" style="left:4%"></div><div class="grid" style="left:16%"></div><div class="grid" style="left:27%"></div><div class="grid" style="left:39%"></div><div class="grid" style="left:53%"></div><div class="grid" style="left:58%"></div><div class="grid" style="left:77%"></div><div class="grid" style="left:94%"></div>
 
-  <div class="dot" data-title="왕국 분열" data-info="연도: BC 930&#10;솔로몬 사후 남북 왕국 분열" style="left:4%;top:16px"></div>
-  <div class="eventText" style="left:4%;top:32px">BC930<br>왕국분열</div>
+  <div class="dot" data-title="왕국 분열" data-info="연도: BC 930&#10;솔로몬 사후 남북 왕국 분열" style="left:4.00%;top:16px"></div>
+  <div class="eventText" style="left:4.00%;top:32px">BC930<br>왕국분열</div>
   <div class="dot" data-title="아합과 바알 숭배 확산" data-info="우상 숭배의 극치와 신앙적 정체성 위기" style="left:30%;top:16px"></div>
   <div class="eventText" style="left:30%;top:32px">아합<br>바알숭배</div>
-  <div class="dot" data-title="갈멜산 대결" data-info="엘리야 선지자와 바알 선지자들의 대결" style="left:36%;top:76px"></div>
-  <div class="eventText" style="left:36%;top:92px">BC850경<br>갈멜산</div>
-  <div class="dot" data-title="예후의 아합 왕조 심판" data-info="예후의 혁명과 아합 가문을 심판" style="left:44%;top:16px"></div>
-  <div class="eventText" style="left:44%;top:32px">BC841<br>예후</div>
-  <div class="dot" data-title="아모스·호세아의 경고" data-info="멸망 전 도덕적 배도와 언약 배반 경고" style="left:70%;top:76px"></div>
-  <div class="eventText" style="left:70%;top:92px">아모스<br>호세아</div>
-  <div class="dot" data-title="북이스라엘 멸망" data-info="BC 722 사마리아 함락 및 사멸" style="left:53%;top:136px"></div>
-  <div class="eventText" style="left:53%;top:152px">BC722<br>북이스라엘<br>멸망</div>
-  <div class="dot" data-title="히스기야와 앗수르 위기" data-info="BC 701 산헤립 군대의 예루살렘 포위와 극적 구원" style="left:58%;top:16px"></div>
-  <div class="eventText" style="left:58%;top:32px">BC701<br>앗수르위기</div>
-  <div class="dot" data-title="요시야 개혁" data-info="BC 622 성전 수리 중 성경 율법책 발견과 전국적 개혁" style="left:77%;top:76px"></div>
-  <div class="eventText" style="left:77%;top:92px">BC622<br>요시야개혁</div>
-  <div class="dot" data-title="예루살렘 함락" data-info="BC 586 느부갓네살에 의한 남유다 함락과 성전 파괴" style="left:94%;top:136px"></div>
-  <div class="eventText" style="left:94%;top:152px">BC586<br>예루살렘<br>함락</div>
+  <div class="dot" data-title="갈멜산 대결" data-info="엘리야 선지자와 바알 선지자들의 대결" style="left:24.93%;top:76px"></div>
+  <div class="eventText" style="left:24.93%;top:92px">BC850경<br>갈멜산</div>
+  <div class="dot" data-title="예후의 아합 왕조 심판" data-info="예후의 혁명과 아합 가문을 심판" style="left:27.28%;top:16px"></div>
+  <div class="eventText" style="left:27.28%;top:32px">BC841<br>예후</div>
+  <div class="dot" data-title="아모스·호세아의 경고" data-info="멸망 전 도덕적 배도와 언약 배반 경고" style="left:49.78%;top:76px"></div>
+  <div class="eventText" style="left:49.78%;top:92px">아모스<br>호세아</div>
+  <div class="dot" data-title="북이스라엘 멸망" data-info="BC 722 사마리아 함락 및 사멸" style="left:58.42%;top:136px"></div>
+  <div class="eventText" style="left:58.42%;top:152px">BC722<br>북이스라엘<br>멸망</div>
+  <div class="dot" data-title="히스기야와 앗수르 위기" data-info="BC 701 산헤립 군대의 예루살렘 포위와 극적 구원" style="left:63.91%;top:16px"></div>
+  <div class="eventText" style="left:63.91%;top:32px">BC701<br>앗수르위기</div>
+  <div class="dot" data-title="요시야 개혁" data-info="BC 622 성전 수리 중 성경 율법책 발견과 전국적 개혁" style="left:84.58%;top:76px"></div>
+  <div class="eventText" style="left:84.58%;top:92px">BC622<br>요시야개혁</div>
+  <div class="dot" data-title="예루살렘 함락" data-info="BC 586 느부갓네살에 의한 남유다 함락과 성전 파괴" style="left:94.00%;top:136px"></div>
+  <div class="eventText" style="left:94.00%;top:152px">BC586<br>예루살렘<br>함락</div>
 </div>
 
 </div>
