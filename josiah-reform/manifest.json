@@ -1,10 +1,10 @@
 {
-  "name": "CEN-Matrix 분열왕국 허브 연결판",
-  "short_name": "CEN-Matrix",
+  "name": "요시야 개혁 허브",
+  "short_name": "요시야 개혁",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f6efe4",
+  "background_color": "#f5efe3",
   "theme_color": "#132235",
   "icons": [
     {

@@ -1,6 +1,6 @@
 {
-  "name": "CEN-Matrix 분열왕국 허브 연결판",
-  "short_name": "CEN-Matrix",
+  "name": "갈멜산 대결 허브",
+  "short_name": "갈멜산 허브",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

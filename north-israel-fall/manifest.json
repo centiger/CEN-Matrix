@@ -1,10 +1,10 @@
 {
-  "name": "CEN-Matrix 분열왕국 허브 연결판",
-  "short_name": "CEN-Matrix",
+  "name": "북이스라엘 멸망 허브",
+  "short_name": "북왕국 멸망",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f6efe4",
+  "background_color": "#f3eee8",
   "theme_color": "#132235",
   "icons": [
     {

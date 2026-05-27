@@ -260,6 +260,25 @@ html,body{
 .labelEvents{background:#ffd8d0 !important;}
 .plot.view.prophets .bar{font-size:9.8px !important;}
 
+
+/* hub link markers */
+.dot[data-hub]{
+  width:12px !important;
+  height:12px !important;
+  background:#8f2b22 !important;
+  box-shadow:0 0 0 3px rgba(143,43,34,.16), 0 0 0 6px rgba(143,43,34,.06) !important;
+}
+.dot[data-hub]::after{
+  content:"↗";
+  position:absolute;
+  left:50%;
+  top:-18px;
+  transform:translateX(-50%);
+  font-size:10px;
+  font-weight:900;
+  color:#70451f;
+}
+
 </style>
 </head>
 <body>
@@ -387,19 +406,19 @@ html,body{
   <div class="eventText" style="left:4.00%;top:32px">BC930<br>왕국분열</div>
   <div class="dot" data-title="아합과 바알 숭배 확산" data-info="우상 숭배의 극치와 신앙적 정체성 위기" style="left:30%;top:16px"></div>
   <div class="eventText" style="left:30%;top:32px">아합<br>바알숭배</div>
-  <div class="dot" data-title="갈멜산 대결" data-info="엘리야 선지자와 바알 선지자들의 대결" style="left:24.93%;top:76px"></div>
+  <div class="dot" data-title="갈멜산 대결" data-info="엘리야 선지자와 바알 선지자들의 대결" style="left:24.93%;top:76px" data-hub="carmel/index.html"></div>
   <div class="eventText" style="left:24.93%;top:92px">BC850경<br>갈멜산</div>
   <div class="dot" data-title="예후의 아합 왕조 심판" data-info="예후의 혁명과 아합 가문을 심판" style="left:27.28%;top:16px"></div>
   <div class="eventText" style="left:27.28%;top:32px">BC841<br>예후</div>
   <div class="dot" data-title="아모스·호세아의 경고" data-info="멸망 전 도덕적 배도와 언약 배반 경고" style="left:49.78%;top:76px"></div>
   <div class="eventText" style="left:49.78%;top:92px">아모스<br>호세아</div>
-  <div class="dot" data-title="북이스라엘 멸망" data-info="BC 722 사마리아 함락 및 사멸" style="left:58.42%;top:136px"></div>
+  <div class="dot" data-title="북이스라엘 멸망" data-info="BC 722 사마리아 함락 및 사멸" style="left:58.42%;top:136px" data-hub="north-israel-fall/index.html"></div>
   <div class="eventText" style="left:58.42%;top:152px">BC722<br>북이스라엘<br>멸망</div>
-  <div class="dot" data-title="히스기야와 앗수르 위기" data-info="BC 701 산헤립 군대의 예루살렘 포위와 극적 구원" style="left:63.91%;top:16px"></div>
+  <div class="dot" data-title="히스기야와 앗수르 위기" data-info="BC 701 산헤립 군대의 예루살렘 포위와 극적 구원" style="left:63.91%;top:16px" data-hub="hezekiah-assyria/index.html"></div>
   <div class="eventText" style="left:63.91%;top:32px">BC701<br>앗수르위기</div>
-  <div class="dot" data-title="요시야 개혁" data-info="BC 622 성전 수리 중 성경 율법책 발견과 전국적 개혁" style="left:84.58%;top:76px"></div>
+  <div class="dot" data-title="요시야 개혁" data-info="BC 622 성전 수리 중 성경 율법책 발견과 전국적 개혁" style="left:84.58%;top:76px" data-hub="josiah-reform/index.html"></div>
   <div class="eventText" style="left:84.58%;top:92px">BC622<br>요시야개혁</div>
-  <div class="dot" data-title="예루살렘 함락" data-info="BC 586 느부갓네살에 의한 남유다 함락과 성전 파괴" style="left:94.00%;top:136px"></div>
+  <div class="dot" data-title="예루살렘 함락" data-info="BC 586 느부갓네살에 의한 남유다 함락과 성전 파괴" style="left:94.00%;top:136px" data-hub="jerusalem-fall/index.html"></div>
   <div class="eventText" style="left:94.00%;top:152px">BC586<br>예루살렘<br>함락</div>
 </div>
 
@@ -420,6 +439,24 @@ html,body{
     <button class="close" id="closeModal">닫기</button>
   </div>
 </div>
+
+
+<script id="cen-matrix-hub-link-script">
+(function(){
+  document.addEventListener('click', function(e){
+    const hub = e.target.closest('.dot[data-hub]');
+    if(!hub) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const url = hub.dataset.hub;
+    if(url && !url.includes('jerusalem-fall')){
+      window.open(url, '_self');
+    }else{
+      alert('예루살렘 함락 허브 제작 후 연결됩니다.');
+    }
+  }, true);
+})();
+</script>
 
 <script>
 const tabs = [...document.querySelectorAll('.tab')];
@@ -497,5 +534,27 @@ if('serviceWorker' in navigator){
   navigator.serviceWorker.register('./sw.js').catch(()=>{});
 }
 </script>
+
+<script id="cen-matrix-footer-link-script">
+(function(){
+  const footerLinks = {
+    '성경연대기':'https://centiger.github.io/cen-bible-chrololgy/?view=timeline',
+    '연결탐험':'https://centiger.github.io/cen-bible-chrololgy/#hub',
+    '한눈에 성경':'https://centiger.github.io/CEN-Bible2.0/#overview66',
+    '핵심 사건':'https://centiger.github.io/cen-bible-chrololgy/?view=timeline'
+  };
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('footer.actions .action');
+    if(!btn) return;
+    const label = (btn.textContent || '').trim();
+    const url = footerLinks[label];
+    if(!url) return;
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(url, '_self');
+  }, true);
+})();
+</script>
+
 </body>
 </html>
