@@ -1,0 +1,8 @@
+{
+  "name": "예루살렘 함락 허브",
+  "short_name": "예루살렘 함락",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f3ece5",
+  "theme_color": "#1b1716"
+}

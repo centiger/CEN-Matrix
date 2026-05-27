@@ -418,7 +418,7 @@ html,body{
   <div class="eventText" style="left:63.91%;top:32px">BC701<br>앗수르위기</div>
   <div class="dot" data-title="요시야 개혁" data-info="BC 622 성전 수리 중 성경 율법책 발견과 전국적 개혁" style="left:84.58%;top:76px" data-hub="josiah-reform/index.html"></div>
   <div class="eventText" style="left:84.58%;top:92px">BC622<br>요시야개혁</div>
-  <div class="dot" data-title="예루살렘 함락" data-info="BC 586 느부갓네살에 의한 남유다 함락과 성전 파괴" style="left:94.00%;top:136px" data-hub="jerusalem-fall/index.html"></div>
+  <div class="dot" data-title="예루살렘 함락" data-info="BC 586 느부갓네살에 의한 남유다 함락과 성전 파괴" style="left:94.00%;top:136px" data-hub="jerusalem-fall/index.html"</div>
   <div class="eventText" style="left:94.00%;top:152px">BC586<br>예루살렘<br>함락</div>
 </div>
 
@@ -449,10 +449,8 @@ html,body{
     e.preventDefault();
     e.stopPropagation();
     const url = hub.dataset.hub;
-    if(url && !url.includes('jerusalem-fall')){
+    if(url){
       window.open(url, '_self');
-    }else{
-      alert('예루살렘 함락 허브 제작 후 연결됩니다.');
     }
   }, true);
 })();
