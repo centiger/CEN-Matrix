@@ -1,0 +1,1 @@
+const CACHE='cen-5hub-engine-png-maps-v1';self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('activate',e=>self.clients.claim());
