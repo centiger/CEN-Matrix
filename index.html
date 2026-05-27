@@ -579,5 +579,32 @@ if('serviceWorker' in navigator){
 })();
 </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const hubMap = {
+    '갈멜산':'hubs/index.html?hub=carmel',
+    '북이스라엘':'hubs/index.html?hub=north-israel-fall',
+    '앗수르':'hubs/index.html?hub=hezekiah-assyria',
+    '히스기야':'hubs/index.html?hub=hezekiah-assyria',
+    '요시야':'hubs/index.html?hub=josiah-reform',
+    'BC586':'hubs/index.html?hub=jerusalem-fall',
+    '예루살렘 함락':'hubs/index.html?hub=jerusalem-fall'
+  };
+
+  document.querySelectorAll('*').forEach(el=>{
+    const t=(el.innerText||'').trim();
+    Object.keys(hubMap).forEach(k=>{
+      if(t.includes(k)){
+        el.style.cursor='pointer';
+        el.addEventListener('click',()=>{
+          location.href=hubMap[k];
+        });
+      }
+    });
+  });
+});
+</script>
+
 </body>
 </html>
