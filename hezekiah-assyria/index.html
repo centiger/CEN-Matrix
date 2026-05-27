@@ -33,4 +33,39 @@
 <nav class="bottomNav"><button data-link="matrix">Matrix</button><button data-link="timeline">연대기</button><button data-link="explore">연결탐험</button></nav>
 <div class="modal" id="modal"><div class="modalCard"><div class="modalTitle" id="modalTitle"></div><div class="modalBody" id="modalBody"></div><button class="close" id="closeModal">닫기</button></div></div>
 <script>const LINKS={matrix:'../index.html',timeline:'https://centiger.github.io/cen-bible-chrololgy/?view=timeline',explore:'https://centiger.github.io/cen-bible-chrololgy/#hub',northfall:'../north-israel-fall/index.html',josiah:'#josiah-ready'};document.addEventListener('click',e=>{const link=e.target.closest('[data-link]');if(link){const url=LINKS[link.dataset.link]||link.dataset.link;if(url.startsWith('#'))alert('다음 허브 제작 후 연결됩니다: 요시야 개혁');else window.open(url,'_self');return}const item=e.target.closest('[data-title]');if(item){modalTitle.textContent=item.dataset.title;modalBody.textContent=item.dataset.info||'준비중입니다.';modal.classList.add('show')}});closeModal.onclick=()=>modal.classList.remove('show');modal.onclick=e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('show')};if('serviceWorker'in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{})}</script>
+
+<script id="cen-safe-hub-link-script">
+(function(){
+  const linkMap = {
+    "northfall": "../north-israel-fall/index.html",
+    "북이스라엘 멸망": "../north-israel-fall/index.html",
+    "josiah": "../josiah-reform/index.html",
+    "요시야 개혁": "../josiah-reform/index.html",
+    "matrix": "../index.html",
+    "분열왕국 Matrix": "../index.html",
+    "Matrix": "../index.html",
+    "timeline": "https://centiger.github.io/cen-bible-chrololgy/?view=timeline",
+    "성경연대기": "https://centiger.github.io/cen-bible-chrololgy/?view=timeline",
+    "연대기": "https://centiger.github.io/cen-bible-chrololgy/?view=timeline",
+    "explore": "https://centiger.github.io/cen-bible-chrololgy/#hub",
+    "연결탐험": "https://centiger.github.io/cen-bible-chrololgy/#hub"
+  };
+  document.addEventListener('click', function(e){
+    const target = e.target.closest('[data-link], button');
+    if(!target) return;
+    const key = target.dataset && target.dataset.link ? target.dataset.link : (target.textContent || '').trim();
+    const textKey = (target.textContent || '').trim();
+    const url = linkMap[key] || linkMap[textKey];
+    if(!url) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if(url.startsWith('#')) {
+      alert('다음 단계에서 연결됩니다.');
+    } else {
+      window.open(url, '_self');
+    }
+  }, true);
+})();
+</script>
+
 </body></html>

@@ -46,4 +46,39 @@ document.addEventListener('click',e=>{const link=e.target.closest('[data-link]')
 document.getElementById('closeModal').onclick=()=>document.getElementById('modal').classList.remove('show');
 document.getElementById('modal').onclick=e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('show')};
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
-</script></body></html>
+</script>
+<script id="cen-safe-hub-link-script">
+(function(){
+  const linkMap = {
+    "north-fall": "../north-israel-fall/index.html",
+    "북이스라엘 멸망": "../north-israel-fall/index.html",
+    "matrix": "../index.html",
+    "분열왕국 Matrix": "../index.html",
+    "Matrix": "../index.html",
+    "timeline": "https://centiger.github.io/cen-bible-chrololgy/?view=timeline",
+    "성경연대기": "https://centiger.github.io/cen-bible-chrololgy/?view=timeline",
+    "연대기": "https://centiger.github.io/cen-bible-chrololgy/?view=timeline",
+    "explore": "https://centiger.github.io/cen-bible-chrololgy/#hub",
+    "연결탐험": "https://centiger.github.io/cen-bible-chrololgy/#hub",
+    "overview": "https://centiger.github.io/CEN-Bible2.0/#overview66",
+    "한눈에 성경": "https://centiger.github.io/CEN-Bible2.0/#overview66"
+  };
+  document.addEventListener('click', function(e){
+    const target = e.target.closest('[data-link], button');
+    if(!target) return;
+    const key = target.dataset && target.dataset.link ? target.dataset.link : (target.textContent || '').trim();
+    const textKey = (target.textContent || '').trim();
+    const url = linkMap[key] || linkMap[textKey];
+    if(!url) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if(url.startsWith('#')) {
+      alert('다음 단계에서 연결됩니다.');
+    } else {
+      window.open(url, '_self');
+    }
+  }, true);
+})();
+</script>
+
+</body></html>
