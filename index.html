@@ -305,6 +305,25 @@ html,body{
 }
 
 </style>
+
+<style id="cen-divided-matrix-enhance-v1">
+.cen-enhance-panel{max-width:760px;margin:14px auto;padding:0 10px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.cen-layer-card{background:linear-gradient(135deg,#fff8e8,#efe2c3);border:1px solid #cdb58b;border-radius:18px;padding:12px;margin:12px 0;box-shadow:0 4px 14px rgba(60,40,15,.08)}
+.cen-layer-title{font-size:15px;font-weight:900;color:#17304a;border-left:6px solid #7b4b2c;padding-left:8px;margin-bottom:10px}
+.cen-empire-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cen-prophet-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.cen-collapse-flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.cen-node{min-height:70px;background:#fffaf0;border:1px solid #d2bd96;border-radius:14px;padding:9px 7px;text-align:center}
+.cen-node b{display:block;font-size:12px;color:#16213a}
+.cen-node span{display:block;font-size:10px;color:#6a5639;margin-top:4px;line-height:1.35}
+.cen-node.dark{background:linear-gradient(135deg,#2b3448,#682b22);border-color:#9e6748}.cen-node.dark b,.cen-node.dark span{color:#fff6df}
+.cen-warning-strip{background:linear-gradient(90deg,#7b2f1c,#2b1a18);color:#fff6df;border-radius:16px;padding:12px;font-size:12px;line-height:1.5;font-weight:800;text-align:center;border:1px solid rgba(255,210,130,.35)}
+.cen-countdown{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.cen-count{background:#2f1e1b;color:#ffe3bd;border:1px solid #8b4a2a;border-radius:13px;padding:8px 4px;text-align:center;font-size:10px;font-weight:900}
+.cen-count small{display:block;margin-top:4px;color:#d8b999;font-size:9px}
+@media(max-width:430px){.cen-prophet-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.cen-collapse-flow{grid-template-columns:1fr}.cen-countdown{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+
 </head>
 <body>
 
@@ -448,6 +467,33 @@ html,body{
 </div>
 
 </div>
+
+<section class="cen-enhance-panel" id="cen-divided-enhance">
+  <div class="cen-layer-card"><div class="cen-layer-title">제국 패권 흐름</div><div class="cen-empire-flow">
+    <div class="cen-node"><b>아람</b><span>분열 초기 압박<br>북이스라엘과 충돌</span></div>
+    <div class="cen-node"><b>앗수르</b><span>사마리아 함락<br>북이스라엘 멸망</span></div>
+    <div class="cen-node dark"><b>바벨론</b><span>예루살렘 함락<br>성전 파괴</span></div>
+  </div></div>
+  <div class="cen-layer-card"><div class="cen-layer-title">선지자 경고 흐름</div><div class="cen-prophet-flow">
+    <div class="cen-node"><b>엘리야</b><span>갈멜산 대결<br>돌아오라</span></div>
+    <div class="cen-node"><b>엘리사</b><span>계승되는<br>선지자 사역</span></div>
+    <div class="cen-node"><b>이사야</b><span>앗수르 위기 속<br>경고와 소망</span></div>
+    <div class="cen-node dark"><b>예레미야</b><span>예루살렘 함락<br>직전의 눈물</span></div>
+  </div></div>
+  <div class="cen-layer-card"><div class="cen-layer-title">왕국 붕괴 흐름</div><div class="cen-collapse-flow">
+    <div class="cen-node"><b>북이스라엘</b><span>여로보암의 죄 → 우상체계 유지 → 앗수르 압박 → 사마리아 함락</span></div>
+    <div class="cen-node dark"><b>남유다</b><span>히스기야 회복 → 므낫세 타락 → 요시야 마지막 불꽃 → 예루살렘 함락</span></div>
+  </div></div>
+  <div class="cen-layer-card"><div class="cen-layer-title">멸망 카운트다운</div><div class="cen-countdown">
+    <div class="cen-count">갈멜산<small>회복 가능성</small></div>
+    <div class="cen-count">사마리아<small>북왕국 멸망</small></div>
+    <div class="cen-count">히스기야<small>잠시 구원</small></div>
+    <div class="cen-count">요시야<small>마지막 개혁</small></div>
+    <div class="cen-count">BC586<small>예루살렘 함락</small></div>
+  </div></div>
+  <div class="cen-warning-strip">왕국은 외부 제국 때문에만 무너진 것이 아닙니다. 안에서는 우상숭배가 깊어졌고, 밖에서는 제국의 압박이 거세졌으며, 선지자의 경고는 끝내 왕국의 붕괴 앞에서 눈물로 바뀝니다.</div>
+</section>
+
 </main>
 
 <footer class="actions">
