@@ -324,6 +324,20 @@ html,body{
 @media(max-width:430px){.cen-prophet-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.cen-collapse-flow{grid-template-columns:1fr}.cen-countdown{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 
+
+<style id="hub-click-area-fix">
+.eventText{
+  pointer-events:none !important;
+  cursor:default !important;
+}
+.dot[data-hub]{
+  cursor:pointer !important;
+}
+.plot.view.events{
+  cursor:default !important;
+}
+</style>
+
 </head>
 <body>
 
@@ -450,19 +464,19 @@ html,body{
   <div class="eventText" style="left:4.00%;top:32px">BC930<br>왕국분열</div>
   <div class="dot" data-title="아합과 바알 숭배 확산" data-info="우상 숭배의 극치와 신앙적 정체성 위기" style="left:30%;top:16px"></div>
   <div class="eventText" style="left:30%;top:32px">아합<br>바알숭배</div>
-  <div class="dot" data-title="갈멜산 대결" data-info="엘리야 선지자와 바알 선지자들의 대결" style="left:24.93%;top:76px" data-hub="carmel/index.html"></div>
+  <div class="dot" data-title="갈멜산 대결" data-info="엘리야 선지자와 바알 선지자들의 대결" style="left:24.93%;top:76px" data-hub="hubs/index.html?hub=carmel"></div>
   <div class="eventText" style="left:24.93%;top:92px">BC850경<br>갈멜산</div>
   <div class="dot" data-title="예후의 아합 왕조 심판" data-info="예후의 혁명과 아합 가문을 심판" style="left:27.28%;top:16px"></div>
   <div class="eventText" style="left:27.28%;top:32px">BC841<br>예후</div>
   <div class="dot" data-title="아모스·호세아의 경고" data-info="멸망 전 도덕적 배도와 언약 배반 경고" style="left:49.78%;top:76px"></div>
   <div class="eventText" style="left:49.78%;top:92px">아모스<br>호세아</div>
-  <div class="dot" data-title="북이스라엘 멸망" data-info="BC 722 사마리아 함락 및 사멸" style="left:58.42%;top:136px" data-hub="north-israel-fall/index.html"></div>
+  <div class="dot" data-title="북이스라엘 멸망" data-info="BC 722 사마리아 함락 및 사멸" style="left:58.42%;top:136px" data-hub="hubs/index.html?hub=north-israel-fall"></div>
   <div class="eventText" style="left:58.42%;top:152px">BC722<br>북이스라엘<br>멸망</div>
-  <div class="dot" data-title="히스기야와 앗수르 위기" data-info="BC 701 산헤립 군대의 예루살렘 포위와 극적 구원" style="left:63.91%;top:16px" data-hub="hezekiah-assyria/index.html"></div>
+  <div class="dot" data-title="히스기야와 앗수르 위기" data-info="BC 701 산헤립 군대의 예루살렘 포위와 극적 구원" style="left:63.91%;top:16px" data-hub="hubs/index.html?hub=hezekiah-assyria"></div>
   <div class="eventText" style="left:63.91%;top:32px">BC701<br>앗수르위기</div>
-  <div class="dot" data-title="요시야 개혁" data-info="BC 622 성전 수리 중 성경 율법책 발견과 전국적 개혁" style="left:84.58%;top:76px" data-hub="josiah-reform/index.html"></div>
+  <div class="dot" data-title="요시야 개혁" data-info="BC 622 성전 수리 중 성경 율법책 발견과 전국적 개혁" style="left:84.58%;top:76px" data-hub="hubs/index.html?hub=josiah-reform"></div>
   <div class="eventText" style="left:84.58%;top:92px">BC622<br>요시야개혁</div>
-  <div class="dot" data-title="예루살렘 함락" data-info="BC 586 느부갓네살에 의한 남유다 함락과 성전 파괴" style="left:94.00%;top:136px" data-hub="jerusalem-fall/index.html"></div>
+  <div class="dot" data-title="예루살렘 함락" data-info="BC 586 느부갓네살에 의한 남유다 함락과 성전 파괴" style="left:94.00%;top:136px" data-hub="hubs/index.html?hub=jerusalem-fall"></div>
   <div class="eventText" style="left:94.00%;top:152px">BC586<br>예루살렘<br>함락</div>
 </div>
 
@@ -519,6 +533,7 @@ html,body{
     if(!hub) return;
     e.preventDefault();
     e.stopPropagation();
+    e.stopImmediatePropagation();
     const url = hub.dataset.hub;
     if(url){
       window.open(url, '_self');
@@ -625,32 +640,6 @@ if('serviceWorker' in navigator){
 })();
 </script>
 
-
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const hubMap = {
-    '갈멜산':'hubs/index.html?hub=carmel',
-    '북이스라엘':'hubs/index.html?hub=north-israel-fall',
-    '앗수르':'hubs/index.html?hub=hezekiah-assyria',
-    '히스기야':'hubs/index.html?hub=hezekiah-assyria',
-    '요시야':'hubs/index.html?hub=josiah-reform',
-    'BC586':'hubs/index.html?hub=jerusalem-fall',
-    '예루살렘 함락':'hubs/index.html?hub=jerusalem-fall'
-  };
-
-  document.querySelectorAll('*').forEach(el=>{
-    const t=(el.innerText||'').trim();
-    Object.keys(hubMap).forEach(k=>{
-      if(t.includes(k)){
-        el.style.cursor='pointer';
-        el.addEventListener('click',()=>{
-          location.href=hubMap[k];
-        });
-      }
-    });
-  });
-});
-</script>
 
 </body>
 </html>
