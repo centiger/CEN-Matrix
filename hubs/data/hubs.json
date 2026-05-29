@@ -615,7 +615,7 @@
         },
         {
           "label": "바벨론 포로 세계",
-          "hub": "babylon-exile"
+          "url": "https://centiger.github.io/CEN-Return-Matrix/hubs/index.html?hub=return"
         },
         {
           "label": "성경연대기",
@@ -627,9 +627,9 @@
         }
       ],
       "prev": "josiah-reform",
-      "next": "babylon-exile",
       "prevLabel": "요시야 개혁",
-      "nextLabel": "바벨론 포로"
+      "nextLabel": "포로귀환 Matrix",
+      "nextUrl": "https://centiger.github.io/CEN-Return-Matrix/hubs/index.html?hub=return"
     }
   ]
 }
